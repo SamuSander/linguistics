@@ -1,0 +1,44 @@
+services:
+  drm:
+    build: .
+    image: ${CI_REGISTRY_IMAGE}/drm:latest
+    ports:
+    - 8080:80
+    hostname: drm
+    environment:
+    # - SERVERNAME=mariadb
+    # - USERNAME=root
+    # - PASSWORD=
+    # - DB_NAME=drm
+    # - PORT=3306
+
+    - SERVERNAME=${SERVERNAME}
+    - USERNAME=${USERNAME}
+    - PASSWORD=${PASSWORD}
+    - DB_NAME=${DB_NAME}
+    - PORT=${PORT}
+    # volumes:
+    # - ./DRM:/var/www/html  # Maps the 'DRM' folder on your host to '/var/www/html' in the container
+
+  mariadb:
+    image: mariadb
+    hostname: mariadb
+    environment:
+    # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes: 
+      - mysql:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8000:80
+    environment:
+    - PMA_HOST=mariadb      # Connect to local MySQL server
+    # - PMA_PORT=3306           # Default MySQL port
+    # - PMA_ARBITRARY=1         # Allow any server to be specified
+
+volumes:
+  mysql:
+    external: true

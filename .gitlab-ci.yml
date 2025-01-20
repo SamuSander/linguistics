@@ -1,0 +1,58 @@
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - tag
+  - deploy-dev
+  - deploy-prod
+
+before_script:
+#    - echo "$MY_DOCKERHUB_PASSWORD" | docker login -u "$MY_DOCKERHUB_USER" --password-stdin
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+after_script:
+#    - docker logout
+    - docker logout ${CI_REGISTRY}
+
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - docker pull ${CI_REGISTRY_IMAGE}/drm:latest || true
+    - docker build . -t ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA} --build-arg DATABASE=${DATABASE}
+    - docker push ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA}
+  tags:
+    - buildserver
+
+tag-latest:
+  variables:
+    GIT_STRATEGY: none
+  stage: tag
+  only:
+    - main
+  script:
+    - docker pull ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA}
+    - docker tag  ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA} ${CI_REGISTRY_IMAGE}/drm:latest
+    - docker push ${CI_REGISTRY_IMAGE}/drm:latest
+  tags:
+    - buildserver
+
+deploy-job-dev:
+  stage: deploy-dev
+  tags: 
+    - zislrds0049 #your_tag
+  except:
+    - main
+  script:
+    - env | sort
+    - docker-compose -f docker-compose-dev.yml  -p drm-dev pull
+    - docker-compose -f docker-compose-dev.yml  -p drm-dev down
+    - docker-compose -f docker-compose-dev.yml  -p drm-dev up -d 
+
+deploy-job-prod:
+  stage: deploy-prod
+  tags: 
+    - webserver
+  only:
+    - main
+  script:
+    - env | sort
+    - docker-compose -f docker-compose-prod.yml  -p drm-prod pull
+    - docker-compose -f docker-compose-prod.yml  -p drm-prod down
+    - docker-compose -f docker-compose-prod.yml  -p drm-prod up -d

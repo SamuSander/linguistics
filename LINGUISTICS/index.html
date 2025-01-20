@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRM_Experiment</title>
+    <link rel="icon" type="image/x-icon" href="pics/favicon.ico">
+    <script src="jspsych/jspsych.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jspsych/core@7.2.5/jspsych.min.js"></script>
+    <script src="jspsych/plugin-fullscreen.js"></script>
+    <script src="jspsych/plugin-html-button-response.js"></script>
+    <script src="jspsych/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/plugin-instructions.js"></script>
+    <script src="jspsych/plugin-preload.js"></script>
+    <script src="jspsych/plugin-survey-html-form.js"></script>
+    <script src="jspsych/plugin-survey-likert.js"></script>
+    <script src="jspsych/plugin-survey-multi-choice.js"></script>
+    <script src="jspsych/plugin-survey-multi-choice-image.js"></script>
+    <script src="jspsych/plugin-survey-text.js"></script>
+    <link href="./custom.css" rel="stylesheet" type="text/css"></link> 
+
+    <script>
+      /*initialize jsPsych*/
+      const jsPsych = initJsPsych({
+        on_data_update: function(data) {
+          var trial_json_result = {0:data};
+          serverComm.save_data(trial_json_result, 'php/save_data_cont.php', 'drm_cont');
+          },
+      });
+    </script>
+
+    <script src="00_main.js"></script>
+    <script src="./01_consent_form.js"></script>
+    <script src="./00_demographics_german.js"></script>
+
+    <script src="./hagen_preload.js"></script>
+    <script src="./hagen_matrices_instructions_german.js"></script> <!-- Switch file name to change language. -->
+    <script src="./hagen_matrices_functions.js"></script>
+    <script src="./hagen_matrices_trials.js"></script>
+    <script src="./hagen_matrices_initialise.js"></script>
+
+    <script src="./psychomotor_vigilance_functions.js"></script>
+    <script src="./psychomotor_vigilance_initialise.js"></script>
+    <script src="./psychomotor_vigilance_trials.js"></script>
+    <script src="./psychomotor_vigilance_instructions_german.js"></script> <!-- Change to psychomotor_vigilance_instructions_german.js for German version -->
+
+    <script src="./rwt_german.js"></script>
+    <!--<script src="./semantic_differential.js"></script>-->
+    <script src="./DRMexperiment.js"></script>
+
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,43 @@
+<!-- Running on jspsych 7.2.1 -->
+
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<html>
+  <head>
+    <title>Psychomotor Vigilance Task</title>
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych/plugin-instructions.js"></script>
+    <script src="jspsych/plugin-survey-html-form.js"></script>
+    <script src="jspsych/plugin-survey-multi-choice.js"></script>
+    <script src="jspsych/plugin-survey-likert.js"></script>
+    <script src="jspsych/plugin-html-button-response.js"></script>
+    <script src="jspsych/plugin-html-keyboard-response.js"></script>
+    <!-- Use custom css. Same as jsPsych css, with some additions. -->
+    <link href="./_custom.css" rel="stylesheet"></link>
+
+    <script>
+      var jsPsych = initJsPsych({
+        on_finish: function() {
+          jsPsych.data.displayData();
+          jsPsych.data.get().localSave('csv',`pvt.csv`);
+        },
+        on_close: function() {
+          jsPsych.data.get().localSave('csv',`pvt.csv`);
+        }  
+      });
+    </script>
+
+    <script src="./psychomotor_vigilance_functions.js"></script>
+    <script src="./psychomotor_vigilance_initialise.js"></script>
+    <script src="./psychomotor_vigilance_trials.js"></script>
+    <!-- Change to psychomotor_vigilance_instructions_german.js for German version -->
+    <script src="./psychomotor_vigilance_instructions_german.js"></script>
+    <script src="./psychomotor_vigilance_timeline.js"></script>
+
+  </head>
+
+  <body></body>
+
+  <script>jsPsych.run(timeline)</script>
+  
+</html>

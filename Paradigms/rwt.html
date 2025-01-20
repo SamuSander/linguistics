@@ -1,0 +1,37 @@
+<!-- Running on jspsych 7.2.1 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Regensburger Wortflüssigskeitstest</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych/plugin-survey-multi-choice-image.js"></script>
+    <script src="jspsych/plugin-html-button-response.js"></script>
+    <script src="jspsych/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/plugin-survey-html-form.js"></script>
+    <script src="jspsych/plugin-preload.js"></script>
+    <!-- Use custom css. Same as jsPsych css, with some additions. -->
+    <link href="./_custom.css" rel="stylesheet"></link>
+
+    <script>
+      var jsPsych = initJsPsych({
+        experiment_width: 900,
+        on_finish: function() {
+          jsPsych.data.displayData();
+        },
+      });
+    </script>
+
+  </head>
+
+  <body></body>
+
+  <!-- Switch file name to change language. -->
+  <script src="./rwt_german.js"></script>
+
+  <script>
+    timeline = [rwtIntro, rwtInstructions, rwtPorM, getReady, rwtProfessionsorHobbies];
+    jsPsych.run(timeline)
+  </script>
+</html>

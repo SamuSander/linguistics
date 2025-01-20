@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./jspsych/jspsych.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="./jspsych/plugin-survey-html-form.js"></script>
+        <script src="jspsych/plugin-html-keyboard-response.js"></script>
+        <script src="jspsych/plugin-html-button-response.js"></script>
+        <!-- Use custom css. Same as jsPsych css, with some additions. -->
+        <link href="./custom.css" rel="stylesheet"></link>
+
+        <script>
+            var jsPsych = initJsPsych({
+              on_finish: function() {
+                jsPsych.data.displayData();
+              },
+            });
+        </script>
+    </head>
+
+    <body></body>
+
+    <!-- Switch to demographics_german.js for the German version. -->
+    <script src="./00_demographics_german.js"></script>
+
+    <script>
+        timeline = [demographics];
+        jsPsych.run(timeline)
+    </script>
+
+</html>

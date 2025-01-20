@@ -1,0 +1,72 @@
+CODEBOOK FOR THE EXAMPLE DATA FOR THE HAGEN MATRICES TEST
+See hagen_matrices_example_data.csv
+
+GENERAL NOTE ---------------------------------------------------------------------------
+
+The test materials can be found at:
+https://www.fernuni-hagen.de/arbeitspsychologie/forschung/hagener-matrizentest-en.shtml
+
+The code automatically evaluates whether participants responses to the matrices are
+correct or not, and will calculate the final score. When participants are taking the
+test online, make sure to hide the code so that they can't read out the variables
+(containing the solutions) in the console.
+
+COLUMNS --------------------------------------------------------------------------------
+
+The following columns are recorded:
+
+success, timeout, failed_images, failed_audio, failed_video
+These columns are only relevant for the preload plugin. At the beginning of the task,
+all the images used are preloaded. The column "success" indicates whether preloading
+was successful, "timeout" records whether the preloading ran into a time out, and
+"failed_images", "failed_audio" and "failed_video" which content failed to load.
+
+trial_type
+Which jsPsych plugin was used for this trial.
+
+trial_index
+Trial number, in the order they appear during the experiment, across all trials
+(including instructions).
+
+time_elapsed
+How much time has elapsed since the beginning of the experiment in ms.
+
+internal_node_id
+Trial node recorded by jsPsych. Has different levels because trials are organised
+hierarchically (e.g. sub-trials of a timeline).
+
+rt
+Reaction time in milliseconds. Is null when the participant does not react (in time).
+
+response
+The response participants gave. Will be a button number if there were buttons
+(starts counting from 0). For matrix trials, responses are already recoded
+(i.e. options are counted from 1-6 instead of 0-5).
+For example matrices, a response is required. For example matrix solutions, no
+response is required, so responses may have the value null (but participants can 
+click a response if they want to). For the actual test matrices, the response
+may be null if participants do not answer within the time limit of 2 min.
+Only matrices where a correct response is given are counted as correct answers.
+
+trial
+We record what trial participants are in. There are instructions and example trials
+(with instructions/explanations). Example trials consist of two parts: 1) A matrix
+where participants have to find the correct answer 2) a solution where the matrix
+is presented again, but where the correct response option is highlighted.
+Trials named "matrix" represent the actual test trials. The last trial ("score")
+provides feedback how many matrices were solved correctly.
+
+correctAnswer
+Which response option (1-6) is the correct solution for the matrix presented.
+
+correct
+Whether participants chose the correct solution to the matrix (true or false).
+
+stimulus
+What was presented during the trial - will store the entire html code.
+Mostly empty, because the matrices are not recorded as stimulus.
+(It is the "question" parameter in the plugin, not the stimulus.)
+
+matrixNo
+The number of the matrix. Corresponds to the presentation order of the matrices,
+but also to the matrix file names (see study material).

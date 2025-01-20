@@ -1,0 +1,62 @@
+CODEBOOK FOR THE EXAMPLE DATA FOR THE PSYCHOMOTOR VIGILANCE TASK
+See psychomotor_vigilance_example_data.csv
+
+GENERAL NOTE ---------------------------------------------------------------------------
+
+When we use this task, we typically exclude participants from data analysis
+who have more than 20% lapses (defined as reaction times > 1000 ms) or more than
+20% prematures (defined as reaction times < 150 ms). For actual data analysis,
+one usually defines lapses as rt > 500 ms and prematures as rt < 100.
+This means that the criteria we use for excluding entire data sets from single
+participants are not the same criteria we use for individual trials in the
+final data analysis.
+
+COLUMNS --------------------------------------------------------------------------------
+
+The following columns are recorded from this version of the PVT:
+
+view_history
+When using the instructions plugin, participants can click through several pages.
+This column records how much time they spent on each page, whether they returned
+to the previous at some point etc.
+
+rt
+Reaciton time in milliseconds. Is null when the participant does not react (in time).
+
+trial
+We record what trial participants are in. There is the start screen (beginning
+of the task) and instructions. For the pvt task itself, there is the fixation period,
+followed by the stopwatch, followed by feedback. Trials starting with "practice_"
+denote practice trials, trials of the main task are marked with "main_".
+
+trial_type
+Which jsPsych plugin was used for this trial.
+
+trial_index
+Trial number, in the order they appear during the experiment, across all trials
+(including instructions).
+
+time_elapsed
+How much time has elapsed since the beginning of the experiment in ms.
+
+internal_node_id
+Trial node recorded by jsPsych. Has different levels because trials are organised
+hierarchically (e.g. sub-trials of a timeline).
+
+stimulus
+What was presented during the trial - will store the entire html code.
+
+response
+The response participants gave. Will be a button number if there were buttons,
+or a keyboard input if one was requested.
+
+pvt_iti
+Duration of the fixation (waiting) period of the pvt.
+
+correct
+Whether participants stopped the stopwatch in time (i.e. they were slower than
+a premature response, but faster than a lapse).
+
+pvt_stopwatch
+What the stopwatch (html) was displaying at the time. Note that there are slight
+discrepancies between what the stopwatch displays and what is stored in rt.

@@ -1,0 +1,41 @@
+<!-- Running on jspsych 7.2.1 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hagen Matrices</title>
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych/plugin-survey-multi-choice-image.js"></script>
+    <script src="jspsych/plugin-html-button-response.js"></script>
+    <script src="jspsych/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/plugin-preload.js"></script>
+    <!-- Use custom css. Same as jsPsych css, with some additions. -->
+    <link href="./_custom.css" rel="stylesheet"></link>
+
+    <script>
+      var jsPsych = initJsPsych({
+        on_finish: function() {
+          jsPsych.data.displayData();
+          jsPsych.data.get().localSave('csv',`hagen_matrices.csv`);
+        },
+        on_close: function() {
+          jsPsych.data.get().localSave('csv',`hagen_matrices.csv`);
+        }  
+      });
+    </script>
+
+    <script src="./hagen_matrices_functions.js"></script>
+    <script src="./hagen_matrices_initialise.js"></script>
+    <script src="./hagen_matrices_trials.js"></script>
+    <!-- Switch file name to change language. -->
+    <script src="./hagen_matrices_instructions_german.js"></script>
+    <script src="./hagen_matrices_preload.js"></script>
+    <script src="./hagen_matrices_timeline.js"></script>
+
+  </head>
+
+  <body></body>
+
+  <script>jsPsych.run(timeline)</script>
+  
+</html>

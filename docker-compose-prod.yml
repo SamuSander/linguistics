@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+  drm_fmri:
+    build: .
+    image: ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA}
+    ports:
+    - 8084:80
+    hostname: insight_study_lab
+    environment:
+    - SERVERNAME=${SERVERNAME}
+    - USERNAME=${USERNAME}
+    - PASSWORD=${PASSWORD}
+    - DB_NAME=${DB_NAME}
+    - PORT=${PORT}
+
+  mariadb:
+    image: mariadb
+    hostname: mariadb
+    environment:
+    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes: 
+    - mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8004:80
+    environment:
+    - PMA_HOST=${PMA_HOST}
+
+volumes:
+  mysql:
+#    external: true
