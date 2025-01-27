@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jsPsych Test</title>
+    <script src="dist/jspsych.js"></script>
+    <script src="dist/plugin-html-button-response.js"></script>
+</head>
+<body>
+    <div id="jspsych-target"></div>
+    <script>
+        const jsPsych = initJsPsych();
+
+        const trial = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: '<p>Hello, world!</p>',
+            choices: ['Click me!']
+        };
+
+        jsPsych.run([trial]);
+    </script>
+</body>
+</html>

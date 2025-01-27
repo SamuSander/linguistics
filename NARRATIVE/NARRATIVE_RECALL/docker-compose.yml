@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  narrative:
+    build: .
+    image: narrative:latest
+    ports:
+      - "8080:80"
+    hostname: narrative
+    environment:
+      - SERVERNAME=${SERVERNAME}
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - PORT=${PORT}
+    volumes:
+      - ./narrative_recall:/var/www/html
+
+  mariadb:
+    image: mariadb:latest
+    hostname: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes: 
+      - mysql_narrative:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8000:80"
+    environment:
+      - PMA_HOST=${PMA_HOST}
+      - PMA_PORT=${PMA_PORT}
+
+volumes:
+  mysql_narrative:
