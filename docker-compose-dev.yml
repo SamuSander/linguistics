@@ -1,10 +1,10 @@
 services:
-  drm:
+  winograd:
     build: .
-    image: ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA}
+    image: ${CI_REGISTRY_IMAGE}/winograd:${CI_COMMIT_SHORT_SHA}
     ports:
     - 8080:80
-    hostname: drm
+    hostname: winograd
     environment:
     - SERVERNAME=${SERVERNAME}
     - USERNAME=${USERNAME}
@@ -20,7 +20,7 @@ services:
     environment:
     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes: 
-    - mysql_drm:/var/lib/mysql #Not sure about the _drm part - its in the wiki how
+    - mysql_winograd:/var/lib/mysql #Not sure about the _winograd part - its in the wiki how
 
   phpmyadmin:
     image: phpmyadmin
@@ -30,6 +30,6 @@ services:
     - PMA_HOST=${PMA_HOST}
 
 volumes:
-  mysql_drm: #Not sure about the _drm part - see above
+  mysql_winograd: #Not sure about the _winograd part - see above
   # mysql:
   #   external: true

@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  linguistics:
+  winograd:
     # Build from the Dockerfile in the current directory (".")
     build: .
-    image: linguistics:latest
+    image: winograd:latest
     
     # Map host port 8080 to container port 80
     ports:
@@ -18,11 +18,11 @@ services:
       - DB_NAME=${DB_NAME}
       - PORT=${PORT}
 
-    # Bind-mount your local "linguistics" folder into the container
+    # Bind-mount your local "winograd" folder into the container
     # so you can edit locally and see changes without rebuilding.
     volumes:
       - type: bind
-        source: "./linguistics"
+        source: "./winograd"
         target: "/var/www/html"
 
   mariadb:
@@ -31,7 +31,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     # Persist MySQL data on a named volume
     volumes: 
-      - mysql_linguistics:/var/lib/mysql
+      - mysql_winograd:/var/lib/mysql
     # Expose MySQL to host (optional if you only use phpMyAdmin)
     ports:
       - "3306:3306"
@@ -45,4 +45,4 @@ services:
       - PMA_PORT=3306
 
 volumes:
-  mysql_linguistics:
+  mysql_winograd:
