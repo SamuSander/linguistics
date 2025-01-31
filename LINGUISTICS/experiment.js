@@ -1,34 +1,3 @@
-
-// Define word lists
-var man = [
-    "woman",
-    "husband",
-    "uncle",
-    "lady",
-    "mouse",
-    "male",
-    "father",
-    "strong",
-    "friend",
-    "beard",
-    "person",
-    "handsome",
-];
-var spider = [
-    "web",
-    "insect",
-    "bug",
-    "fright",
-    "fly",
-    "arachnid",
-    "crawl",
-    "tarantula",
-    "poison",
-    "bite",
-    "creepy",
-    "animal",
-];
-
 var lists = [
     { name: "man", words: man },
     { name: "spider", words: spider },
