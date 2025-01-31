@@ -1,4 +1,4 @@
-stages:          # List of stages for jobs, and their order of execution
+stages:         
   - build
   - tag
   - deploy-dev
@@ -8,10 +8,9 @@ before_script:
 #    - echo "$MY_DOCKERHUB_PASSWORD" | docker login -u "$MY_DOCKERHUB_USER" --password-stdin
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
 after_script:
-#    - docker logout
     - docker logout ${CI_REGISTRY}
 
-build-job:       # This job runs in the build stage, which runs first.
+build-job:    
   stage: build
   script:
     - docker pull ${CI_REGISTRY_IMAGE}/winograd:latest || true
@@ -36,7 +35,7 @@ tag-latest:
 deploy-job-dev:
   stage: deploy-dev
   tags: 
-    - zislrds0049 #your_tag
+    - zislrds0049
   except:
     - main
   script:

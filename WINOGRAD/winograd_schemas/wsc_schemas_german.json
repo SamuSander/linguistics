@@ -1,0 +1,1362 @@
+{
+    "wsc_data": [
+      {
+        "id": 1,
+        "sentence": "Die Stadtratsmitglieder verweigerten den Demonstranten eine Genehmigung, weil sie [Gewalt befürchteten/Gewalt befürworteten].",
+        "question": "Wer [befürchtete/befürwortete] Gewalt?",
+        "answers": [
+          "Die Stadtratsmitglieder",
+          "Die Demonstranten"
+        ],
+        "comment": "Dies ist die Version, die in Winograd (1972) veröffentlicht wurde."
+      },
+      {
+        "id": 2,
+        "sentence": "Die Trophäe passt nicht in den braunen Koffer, weil sie zu [klein/groß] ist.",
+        "question": "Was ist zu [klein/groß]?",
+        "answers": [
+          "Der Koffer",
+          "Die Trophäe"
+        ]
+      },
+      {
+        "id": 3,
+        "sentence": "Joan achtete darauf, Susan für all die Hilfe zu danken, die sie [gegeben/erhalten] hatte.",
+        "question": "Wer hatte Hilfe [gegeben/erhalten]?",
+        "answers": [
+          "Susan",
+          "Joan"
+        ]
+      },
+      {
+        "id": 4,
+        "sentence": "Paul versuchte, George anzurufen, aber er war nicht [erfolgreich/verfügbar].",
+        "question": "Wer war nicht [erfolgreich/verfügbar]?",
+        "answers": [
+          "Paul",
+          "George"
+        ]
+      },
+      {
+        "id": 5,
+        "sentence": "Der Anwalt stellte dem Zeugen eine Frage, aber er war zögerlich, sie zu [beantworten/wiederholen].",
+        "question": "Wer war zögerlich, die Frage zu [beantworten/wiederholen]?",
+        "answers": [
+          "Der Zeuge",
+          "Der Anwalt"
+        ]
+      },
+      {
+        "id": 6,
+        "sentence": "Der Lieferwagen raste am Schulbus vorbei, weil er so [schnell/langsam] fuhr.",
+        "question": "Was fuhr so [schnell/langsam]?",
+        "answers": [
+          "Der Lieferwagen",
+          "Der Bus"
+        ]
+      },
+      {
+        "id": 7,
+        "sentence": "Frank fühlte sich [rehabilitiert/zerknirscht], als sein langjähriger Rivale Bill offenbarte, dass er der Gewinner des Wettbewerbs war.",
+        "question": "Wer war der Gewinner des Wettbewerbs?",
+        "answers": [
+          "Frank",
+          "Bill"
+        ]
+      },
+      {
+        "id": 8,
+        "sentence": "Der Mann konnte seinen Sohn nicht hochheben, weil er so [schwach/schwer] war.",
+        "question": "Wer war [schwach/schwer]?",
+        "answers": [
+          "Der Mann",
+          "Der Sohn"
+        ]
+      },
+      {
+        "id": 9,
+        "sentence": "Der große Ball krachte direkt durch den Tisch, weil er aus [Stahl/Styropor] gemacht war.",
+        "question": "Was war aus [Stahl/Styropor] gemacht?",
+        "answers": [
+          "Der Ball",
+          "Der Tisch"
+        ]
+      },
+      {
+        "id": 10,
+        "sentence": "John konnte die Bühne nicht sehen, weil Billy vor ihm stand und er so [klein/groß] ist.",
+        "question": "Wer ist so [klein/groß]?",
+        "answers": [
+          "John",
+          "Billy"
+        ]
+      },
+      {
+        "id": 11,
+        "sentence": "Tom warf seine Schultasche zu Ray hinunter, nachdem er das [obere/untere] Ende der Treppe erreicht hatte.",
+        "question": "Wer erreichte das [obere/untere] Ende der Treppe?",
+        "answers": [
+          "Tom",
+          "Ray"
+        ]
+      },
+      {
+        "id": 12,
+        "sentence": "Obwohl sie ungefähr gleich schnell liefen, schlug Sue Sally, weil sie einen so [guten/schlechten] Start hatte.",
+        "question": "Wer hatte einen [guten/schlechten] Start?",
+        "answers": [
+          "Sue",
+          "Sally"
+        ]
+      },
+      {
+        "id": 13,
+        "sentence": "Die Skulptur rollte vom Regal, weil sie nicht [befestigt/eben] war.",
+        "question": "Was war nicht [befestigt/eben]?",
+        "answers": [
+          "Die Skulptur",
+          "Das Regal"
+        ]
+      },
+      {
+        "id": 14,
+        "sentence": "Sams Zeichnung hing direkt über Tinas Zeichnung und sah tatsächlich viel besser aus mit einer weiteren darunter [darunter/darüber].",
+        "question": "Welche sah besser aus?",
+        "answers": [
+          "Sams Zeichnung",
+          "Tinas Zeichnung"
+        ]
+      },
+      {
+        "id": 15,
+        "sentence": "Anna schnitt viel [besser/schlechter] ab als ihre gute Freundin Lucy im Test, weil sie so fleißig gelernt hatte.",
+        "question": "Wer hatte fleißig gelernt?",
+        "answers": [
+          "Anna",
+          "Lucy"
+        ]
+      },
+      {
+        "id": 16,
+        "sentence": "Die Feuerwehrleute kamen [nach/vor] der Polizei an, weil sie von so weit her kamen.",
+        "question": "Wer kam von weit her?",
+        "answers": [
+          "Die Feuerwehrleute",
+          "Die Polizei"
+        ]
+      },
+      {
+        "id": 17,
+        "sentence": "Frank ärgerte sich über Tom, weil der Toaster, den er ihm [abgekauft/verkauft] hatte, nicht funktionierte.",
+        "question": "Wer hatte den Toaster [gekauft/verkauft]?",
+        "answers": [
+          "Frank",
+          "Tom"
+        ]
+      },
+      {
+        "id": 18,
+        "sentence": "Jim [schrie Kevin an/tröstete Kevin], weil er so aufgebracht war.",
+        "question": "Wer war aufgebracht?",
+        "answers": [
+          "Jim",
+          "Kevin"
+        ]
+      },
+      {
+        "id": 19,
+        "sentence": "Der Kartoffelsack wurde [über/unter] den Mehlsack gestellt und musste daher zuerst bewegt werden.",
+        "question": "Was musste zuerst bewegt werden?",
+        "answers": [
+          "Der Kartoffelsack",
+          "Der Mehlsack"
+        ]
+      },
+      {
+        "id": 20,
+        "sentence": "Pete ist eifersüchtig auf Martin, [weil/obwohl] er sehr erfolgreich ist.",
+        "question": "Wer ist sehr erfolgreich?",
+        "answers": [
+          "Martin",
+          "Pete"
+        ]
+      },
+      {
+        "id": 21,
+        "sentence": "Ich versuchte, die Flasche verkehrt herum auf dem Tisch zu balancieren, aber es gelang mir nicht, weil sie so [kopflastig/ungleichmäßig] war.",
+        "question": "Was war [kopflastig/ungleichmäßig]?",
+        "answers": [
+          "Die Flasche",
+          "Der Tisch"
+        ]
+      },
+      {
+        "id": 22,
+        "sentence": "Ich breitete das Tuch auf dem Tisch aus, um ihn zu [schützen/präsentieren].",
+        "question": "Was wollte ich [schützen/präsentieren]?",
+        "answers": [
+          "Den Tisch",
+          "Das Tuch"
+        ]
+      },
+      {
+        "id": 23,
+        "sentence": "Die älteren Schüler schikanierten die jüngeren, also haben wir sie [gerettet/bestraft].",
+        "question": "Wen haben wir [gerettet/bestraft]?",
+        "answers": [
+          "Die jüngeren Schüler",
+          "Die älteren Schüler"
+        ]
+      },
+      {
+        "id": 24,
+        "sentence": "Ich goss Wasser aus der Flasche in die Tasse, bis sie [voll/leer] war.",
+        "question": "Was war [voll/leer]?",
+        "answers": [
+          "Die Tasse",
+          "Die Flasche"
+        ]
+      },
+      {
+        "id": 25,
+        "sentence": "Susan weiß alles über Anns persönliche Probleme, weil sie [neugierig/indiskret] ist.",
+        "question": "Wer ist [neugierig/indiskret]?",
+        "answers": [
+          "Susan",
+          "Ann"
+        ]
+      },
+      {
+        "id": 26,
+        "sentence": "Sid erklärte Mark seine Theorie, aber er konnte ihn nicht [überzeugen/verstehen].",
+        "question": "Wer konnte wen nicht [überzeugen/verstehen]?",
+        "answers": [
+          "Sid konnte Mark nicht überzeugen / Mark konnte Sid nicht überzeugen",
+          "Sid konnte Mark nicht verstehen / Mark konnte Sid nicht verstehen"
+        ],
+        "comment": "Winograd-Schema im weiteren Sinne (zwei Pronomen)."
+      },
+      {
+        "id": 27,
+        "sentence": "Susan wusste, dass Anns Sohn einen Autounfall hatte, [also/weil] sie es ihr sagte.",
+        "question": "Wer erzählte wem von dem Unfall?",
+        "answers": [
+          "Susan",
+          "Ann"
+        ]
+      },
+      {
+        "id": 28,
+        "sentence": "Joes Onkel kann ihn immer noch im Tennis schlagen, obwohl er 30 Jahre [älter/jünger] ist.",
+        "question": "Wer ist [älter/jünger]?",
+        "answers": [
+          "Joes Onkel",
+          "Joe"
+        ]
+      },
+      {
+        "id": 29,
+        "sentence": "Die Polizei verließ das Haus und ging in die Garage, [wo/nachdem] sie die Mordwaffe fanden.",
+        "question": "Wo fanden sie die Mordwaffe?",
+        "answers": [
+          "In der Garage",
+          "Im Haus"
+        ]
+      },
+      {
+        "id": 30,
+        "sentence": "Das Gemälde in Marks Wohnzimmer zeigt eine Eiche. Es ist rechts von [dem Bücherregal/einem Haus].",
+        "question": "Was ist rechts von [dem Bücherregal/einem Haus]?",
+        "answers": [
+          "Das Gemälde",
+          "Der Baum"
+        ]
+      },
+      {
+        "id": 31,
+        "sentence": "Da ist eine Lücke in der Mauer. Man kann den Garten [durch/hinter] sie sehen.",
+        "question": "Durch/hinter was kann man den Garten sehen?",
+        "answers": [
+          "Die Lücke",
+          "Die Mauer"
+        ]
+      },
+      {
+        "id": 32,
+        "sentence": "Der Abfluss ist mit Haaren verstopft. Er muss [gereinigt/entfernt] werden.",
+        "question": "Was muss [gereinigt/entfernt] werden?",
+        "answers": [
+          "Der Abfluss",
+          "Die Haare"
+        ]
+      },
+      {
+        "id": 33,
+        "sentence": "Meine Besprechung begann um 16:00 Uhr und ich musste den Zug um 16:30 Uhr erwischen, also war nicht viel Zeit. Zum Glück war sie [kurz/verspätet], also hat es geklappt.",
+        "question": "Was war [kurz/verspätet]?",
+        "answers": [
+          "Die Besprechung",
+          "Der Zug"
+        ]
+      },
+      {
+        "id": 34,
+        "sentence": "Es gibt eine Säule zwischen mir und der Bühne und ich kann sie nicht [sehen/um sie herumsehen].",
+        "question": "Was kann ich nicht [sehen/um sie herumsehen]?",
+        "answers": [
+          "Die Bühne",
+          "Die Säule"
+        ]
+      },
+      {
+        "id": 35,
+        "sentence": "Man gab eine Durchsage durch, aber eine U-Bahn fuhr in den Bahnhof ein und ich konnte sie nicht [hören/überhören].",
+        "question": "Was konnte ich nicht [hören/überhören]?",
+        "answers": [
+          "Die Durchsage",
+          "Die U-Bahn"
+        ]
+      },
+      {
+        "id": 36,
+        "sentence": "Während des Open-Air-Konzerts fing es an zu regnen, [und/aber] es ging bis 22 Uhr weiter.",
+        "question": "Was ging bis 22 Uhr weiter?",
+        "answers": [
+          "Der Regen",
+          "Das Konzert"
+        ]
+      },
+      {
+        "id": 37,
+        "sentence": "Ich benutzte einen alten Lappen, um das Messer zu säubern, und dann legte ich ihn in die [Schublade/Mülltonne].",
+        "question": "Was habe ich in die [Schublade/Mülltonne] gelegt?",
+        "answers": [
+          "Das Messer",
+          "Den Lappen"
+        ]
+      },
+      {
+        "id": 38,
+        "sentence": "Ann fragte Mary, wann die Bibliothek schließt, [aber/weil] sie es vergessen hatte.",
+        "question": "Wer hatte es vergessen?",
+        "answers": [
+          "Mary",
+          "Ann"
+        ]
+      },
+      {
+        "id": 39,
+        "sentence": "Ich nahm die Wasserflasche aus dem Rucksack, damit er [leichter/griffbereit] wäre.",
+        "question": "Was würde [leichter/griffbereit] sein?",
+        "answers": [
+          "Der Rucksack",
+          "Die Flasche"
+        ]
+      },
+      {
+        "id": 40,
+        "sentence": "Ich konnte den Topf nicht auf das Regal stellen, weil es zu [hoch/hochgewachsen] war.",
+        "question": "Was war zu [hoch/hochgewachsen]?",
+        "answers": [
+          "Das Regal",
+          "Der Topf"
+        ]
+      },
+      {
+        "id": 41,
+        "sentence": "Ich bin sicher, dass meine Karte dieses Gebäude zeigt; sie ist sehr [berühmt/gut].",
+        "question": "Was ist [berühmt/gut]?",
+        "answers": [
+          "Das Gebäude",
+          "Die Karte"
+        ],
+        "comment": "Frei übersetzt, um den Sinn zu erhalten."
+      },
+      {
+        "id": 42,
+        "sentence": "Bob bezahlte Charlies Studium. Er ist sehr [großzügig/dankbar].",
+        "question": "Wer ist [großzügig/dankbar]?",
+        "answers": [
+          "Bob",
+          "Charlie"
+        ]
+      },
+      {
+        "id": 43,
+        "sentence": "Bob finanzierte Charlies Studium, aber jetzt tut Charlie so, als wäre nichts geschehen. Er ist sehr [verletzt/undankbar].",
+        "question": "Wer ist [verletzt/undankbar]?",
+        "answers": [
+          "Bob",
+          "Charlie"
+        ]
+      },
+      {
+        "id": 44,
+        "sentence": "Bob spielte Karten mit Adam und lag deutlich vorne. Wenn Adam nicht plötzlich Glück gehabt hätte, hätte er [gewonnen/verloren].",
+        "question": "Wer hätte [gewonnen/verloren]?",
+        "answers": [
+          "Bob",
+          "Adam"
+        ]
+      },
+      {
+        "id": 45,
+        "sentence": "Adam kann hier nicht Feierabend machen, bevor Bob kommt, um ihn abzulösen. Wenn Bob rechtzeitig von zu Hause losgefahren wäre, wäre er jetzt [hier/weg].",
+        "question": "Wer wäre jetzt [hier/weg]?",
+        "answers": [
+          "Bob",
+          "Adam"
+        ]
+      },
+      {
+        "id": 46,
+        "sentence": "Wenn es dem Betrüger gelungen ist, Sam hereinzulegen, hätte er eine Menge Geld [bekommen/verloren].",
+        "question": "Wer hätte das Geld [bekommen/verloren]?",
+        "answers": [
+          "Der Betrüger",
+          "Sam"
+        ]
+      },
+      {
+        "id": 47,
+        "sentence": "Es war ein Sommernachmittag, und der Hund saß mitten auf dem Rasen. Nach einer Weile stand er auf und ging zu einer Stelle unter dem Baum, weil es dort [heiß/kühler] war.",
+        "question": "Was war [heiß/kühler]?",
+        "answers": [
+          "Der Hund",
+          "Die Stelle unter dem Baum"
+        ]
+      },
+      {
+        "id": 48,
+        "sentence": "Die Katze lag neben dem Mauseloch und wartete auf die Maus, aber sie war zu [vorsichtig/ungeduldig].",
+        "question": "Wer war zu [vorsichtig/ungeduldig]?",
+        "answers": [
+          "Die Maus",
+          "Die Katze"
+        ]
+      },
+      {
+        "id": 49,
+        "sentence": "Anne brachte letzten Monat eine Tochter zur Welt. Sie ist eine sehr bezaubernde [Frau/Baby].",
+        "question": "Wer ist eine sehr bezaubernde [Frau/Baby]?",
+        "answers": [
+          "Anne",
+          "Annes Tochter"
+        ]
+      },
+      {
+        "id": 50,
+        "sentence": "Alice versuchte verzweifelt, ihre Tochter davon abzuhalten, auf der Party zu [plaudern/bellen], und wir fragten uns, warum sie sich so seltsam verhielt.",
+        "question": "Wer verhielt sich seltsam?",
+        "answers": [
+          "Alice",
+          "Alices Tochter"
+        ]
+      },
+      {
+        "id": 51,
+        "sentence": "Ich sah Jim, wie er einen Mann in Uniform mit einem riesigen roten Bart anbrüllte. Ich weiß nicht, [wer/warum] er war, aber er sah sehr unglücklich aus.",
+        "question": "Wer sah sehr unglücklich aus?",
+        "answers": [
+          "Der Mann in Uniform",
+          "Jim"
+        ]
+      },
+      {
+        "id": 52,
+        "sentence": "Der Fisch fraß den Wurm. Er war [schmackhaft/hungrig].",
+        "question": "Wer war [schmackhaft/hungrig]?",
+        "answers": [
+          "Der Wurm",
+          "Der Fisch"
+        ]
+      },
+      {
+        "id": 53,
+        "sentence": "Ich versuchte, das Schloss mit dem Schlüssel zu öffnen, aber jemand hatte das Schlüsselloch mit Kaugummi gefüllt, und ich konnte ihn nicht [hineinbekommen/herausbekommen].",
+        "question": "Was konnte ich nicht [hineinbekommen/herausbekommen]?",
+        "answers": [
+          "Den Schlüssel",
+          "Den Kaugummi"
+        ]
+      },
+      {
+        "id": 54,
+        "sentence": "Der Hund jagte die Katze, die auf einen Baum kletterte. Sie wartete an [der Spitze/am Fuß] des Baumes.",
+        "question": "Wer wartete [oben/unten]?",
+        "answers": [
+          "Die Katze",
+          "Der Hund"
+        ]
+      },
+      {
+        "id": 55,
+        "sentence": "Im Sturm fiel der Baum um und krachte durchs Dach meines Hauses. Jetzt muss ich ihn [entfernen/reparieren] lassen.",
+        "question": "Was muss [entfernt/repariert] werden?",
+        "answers": [
+          "Der Baum",
+          "Das Dach"
+        ]
+      },
+      {
+        "id": 56,
+        "sentence": "Der Kunde ging in die Bank und stach auf einen der Kassierer ein. Er wurde sofort in die [Notaufnahme/Polizeistation] gebracht.",
+        "question": "Wer wurde in die [Notaufnahme/Polizeistation] gebracht?",
+        "answers": [
+          "Der Kassierer",
+          "Der Kunde"
+        ]
+      },
+      {
+        "id": 57,
+        "sentence": "John forschte in der Bibliothek, als er einen Mann summen und pfeifen hörte. Er war sehr [genervt/nervig].",
+        "question": "Wer war [genervt/nervig]?",
+        "answers": [
+          "John",
+          "Der Summende"
+        ]
+      },
+      {
+        "id": 58,
+        "sentence": "John joggte durch den Park, als er einen Mann sah, der mit Wassermelonen jonglierte. Er war sehr [beeindruckt/beeindruckend].",
+        "question": "Wer war [beeindruckt/beeindruckend]?",
+        "answers": [
+          "John",
+          "Der Jongleur"
+        ]
+      },
+      {
+        "id": 59,
+        "sentence": "Bob brach auf dem Gehweg zusammen. Bald sah er Carl kommen, um zu helfen. Er war sehr [krank/besorgt].",
+        "question": "Wer war [krank/besorgt]?",
+        "answers": [
+          "Bob",
+          "Carl"
+        ]
+      },
+      {
+        "id": 60,
+        "sentence": "Sam und Amy sind leidenschaftlich ineinander verliebt, doch Amys Eltern sind unglücklich darüber, weil sie [Snobs/fünfzehn] sind.",
+        "question": "Wer sind [Snobs/fünfzehn]?",
+        "answers": [
+          "Amys Eltern",
+          "Sam und Amy"
+        ]
+      },
+      {
+        "id": 61,
+        "sentence": "Mark erzählte Pete viele Lügen über sich selbst, die Pete in sein Buch aufnahm. Er hätte ehrlicher/skep­tischer sein sollen.",
+        "question": "Wer hätte [ehrlicher/skep­tischer] sein sollen?",
+        "answers": [
+          "Mark",
+          "Pete"
+        ]
+      },
+      {
+        "id": 62,
+        "sentence": "Joe hat sein Haus verkauft und ein neues ein paar Meilen weiter gekauft. Er wird am Donnerstag [ausziehen/einziehen].",
+        "question": "In welches Haus wird er [ausziehen/einziehen]?",
+        "answers": [
+          "Sein altes Haus",
+          "Sein neues Haus"
+        ]
+      },
+      {
+        "id": 63,
+        "sentence": "Viele Leute fangen an, Pauls Bücher zu lesen und können sie nicht weglegen. Sie sind [gefesselt/beliebt], weil Paul so gut schreibt.",
+        "question": "Wer oder was ist [gefesselt/beliebt]?",
+        "answers": [
+          "Die Leser",
+          "Die Bücher"
+        ]
+      },
+      {
+        "id": 64,
+        "sentence": "Mary nahm ihre Flöte heraus und spielte eines ihrer Lieblingsstücke. Sie [liebte/hatte] es schon, seit sie ein Kind war.",
+        "question": "Was hat Mary seit ihrer Kindheit [geliebt/hatte]?",
+        "answers": [
+          "Das Musikstück",
+          "Die Flöte"
+        ]
+      },
+      {
+        "id": 65,
+        "sentence": "Sam holte sich einen Stuhl zum Klavier, aber es war kaputt, also musste er stattdessen [stehen/singen].",
+        "question": "Was war kaputt?",
+        "answers": [
+          "Der Stuhl",
+          "Das Klavier"
+        ]
+      },
+      {
+        "id": 66,
+        "sentence": "Da es regnete, trug ich die Zeitung [über/in] meinem Rucksack, um sie trocken zu halten.",
+        "question": "Was wollte ich trocken halten?",
+        "answers": [
+          "Den Rucksack",
+          "Die Zeitung"
+        ]
+      },
+      {
+        "id": 67,
+        "sentence": "Sara lieh sich das Buch aus der Bibliothek, weil sie es für einen Artikel braucht, an dem sie arbeitet. Sie [liest/schreibt] es, wenn sie nach der Arbeit nach Hause kommt.",
+        "question": "Was [liest/schreibt] Sara, wenn sie nach Hause kommt?",
+        "answers": [
+          "Das Buch",
+          "Den Artikel"
+        ]
+      },
+      {
+        "id": 68,
+        "sentence": "Heute Morgen baute Joey am Strand eine Sandburg und setzte eine Spielzeugfahne auf den höchsten Turm, aber heute Nachmittag wurde sie von [einer Brise/der Flut] umgeworfen.",
+        "question": "Was wurde von [der Brise/der Flut] umgeworfen?",
+        "answers": [
+          "Die Fahne",
+          "Die Sandburg"
+        ]
+      },
+      {
+        "id": 69,
+        "sentence": "Jane klopfte an Susans Tür, aber es gab keine Antwort. Sie war [nicht da/enttäuscht].",
+        "question": "Wer war [nicht da/enttäuscht]?",
+        "answers": [
+          "Susan",
+          "Jane"
+        ]
+      },
+      {
+        "id": 70,
+        "sentence": "Jane klopfte an die Tür, und Susan öffnete sie. Sie lud sie ein, [heraus/herein] zu kommen.",
+        "question": "Wer lud wen ein?",
+        "answers": [
+          "Jane lud Susan ein",
+          "Susan lud Jane ein"
+        ]
+      },
+      {
+        "id": 71,
+        "sentence": "Sam nahm Französischunterricht bei Adam, weil er [begierig/bekannt] dafür war, es fließend zu sprechen.",
+        "question": "Wer war [begierig/bekannt], fließend Französisch zu sprechen?",
+        "answers": [
+          "Sam",
+          "Adam"
+        ]
+      },
+      {
+        "id": 72,
+        "sentence": "Der Weg zum See war blockiert, deshalb konnten wir ihn nicht [erreichen/benutzen].",
+        "question": "Was konnten wir nicht [erreichen/benutzen]?",
+        "answers": [
+          "Den See",
+          "Den Weg"
+        ]
+      },
+      {
+        "id": 73,
+        "sentence": "Die Sonne wurde den ganzen Morgen von einer dicken Wolke verdeckt, aber zum Glück war sie verschwunden, als das Picknick begann.",
+        "question": "Was war [verschwunden/rausgekommen]?",
+        "answers": [
+          "Die Wolke",
+          "Die Sonne"
+        ]
+      },
+      {
+        "id": 74,
+        "sentence": "Wir gingen zum See, weil man am Strand Haie gesehen hatte, also war er ein [gefährlicher/sicherer] Ort zum Schwimmen.",
+        "question": "Welcher Ort war [gefährlicher/sicherer] zum Schwimmen?",
+        "answers": [
+          "Der Strand",
+          "Der See"
+        ]
+      },
+      {
+        "id": 75,
+        "sentence": "Sam wollte ein Bild von Hirten mit Schafen malen, aber am Ende sahen sie eher aus wie [Hunde/Golfer].",
+        "question": "Was sah aus wie [Hunde/Golfer]?",
+        "answers": [
+          "Die Schafe",
+          "Die Hirten"
+        ]
+      },
+      {
+        "id": 76,
+        "sentence": "Mary deckte ihre Tochter Anne zu, damit sie [schlafen/arbeiten] konnte.",
+        "question": "Wer wird [schlafen/arbeiten]?",
+        "answers": [
+          "Anne",
+          "Mary"
+        ]
+      },
+      {
+        "id": 77,
+        "sentence": "Fred und Alice hatten sehr warme Daunenmäntel, aber sie waren nicht [ausreichend/vorbereitet] für die Kälte in Alaska.",
+        "question": "Wer oder was war nicht [ausreichend/vorbereitet]?",
+        "answers": [
+          "Die Mäntel",
+          "Fred und Alice"
+        ]
+      },
+      {
+        "id": 78,
+        "sentence": "Thomson besuchte Coopers Grab im Jahr 1765. Zu diesem Zeitpunkt war er bereits fünf Jahre [tot/auf Reisen].",
+        "question": "Wer war seit fünf Jahren [tot/auf Reisen]?",
+        "answers": [
+          "Cooper",
+          "Thomson"
+        ]
+      },
+      {
+        "id": 79,
+        "sentence": "Jackson wurde stark von Arnold beeinflusst, obwohl er zwei Jahrhunderte [früher/später] lebte.",
+        "question": "Wer lebte [früher/später]?",
+        "answers": [
+          "Arnold",
+          "Jackson"
+        ]
+      },
+      {
+        "id": 80,
+        "sentence": "Toms Tochter Eva ist mit Dr. Stewart verlobt, der sein Partner ist. Die beiden [Ärzte/Liebenden] kennen sich seit zehn Jahren.",
+        "question": "Welche zwei Personen kennen sich seit zehn Jahren?",
+        "answers": [
+          "Tom und Dr. Stewart",
+          "Eva und Dr. Stewart"
+        ]
+      },
+      {
+        "id": 81,
+        "sentence": "Ich kann diesen Baum nicht mit dieser Axt fällen; er ist zu [dick/klein].",
+        "question": "Was ist zu [dick/klein]?",
+        "answers": [
+          "Der Baum",
+          "Die Axt"
+        ]
+      },
+      {
+        "id": 82,
+        "sentence": "Die Füchse dringen nachts ein und greifen die Hühner an. Ich werde sie [bewachen/töten] müssen.",
+        "question": "Wen muss ich [bewachen/töten]?",
+        "answers": [
+          "Die Hühner",
+          "Die Füchse"
+        ]
+      },
+      {
+        "id": 83,
+        "sentence": "Die Füchse kommen nachts herein und greifen die Hühner an. Sie sind sehr [kühn/verängstigt] geworden.",
+        "question": "Wer ist sehr [kühn/verängstigt] geworden?",
+        "answers": [
+          "Die Füchse",
+          "Die Hühner"
+        ]
+      },
+      {
+        "id": 84,
+        "sentence": "Fred bedeckte seine Augen mit den Händen, weil der Wind Sand umherwirbelte. Er [öffnete/senkte] sie, als der Wind aufhörte.",
+        "question": "Was [öffnete/senkte] Fred?",
+        "answers": [
+          "Seine Augen",
+          "Seine Hände"
+        ]
+      },
+      {
+        "id": 85,
+        "sentence": "Die Schauspielerin hieß früher Terpsichore, aber sie änderte ihren Namen vor ein paar Jahren zu Tina, weil sie fand, dass er [leichter/zu schwer] auszusprechen sei.",
+        "question": "Welcher Name war [leichter/zu schwer] auszusprechen?",
+        "answers": [
+          "Tina",
+          "Terpsichore"
+        ]
+      },
+      {
+        "id": 86,
+        "sentence": "Fred sah fern, während George einkaufen ging. Nach einer Stunde kam er [hoch/zurück].",
+        "question": "Wer kam [hoch/zurück]?",
+        "answers": [
+          "Fred",
+          "George"
+        ]
+      },
+      {
+        "id": 87,
+        "sentence": "Fred sollte den Geschirrspüler einschalten, aber er verschob es, weil er fernsehen wollte. Die Sendung war jedoch langweilig, also änderte er seine Meinung und schaltete ihn [ein/aus].",
+        "question": "Was schaltete Fred [ein/aus]?",
+        "answers": [
+          "Den Geschirrspüler",
+          "Den Fernseher"
+        ]
+      },
+      {
+        "id": 88,
+        "sentence": "Fred ist der einzige noch lebende Mann, der sich an meinen Urgroßvater erinnert. Er [ist/war] ein bemerkenswerter Mann.",
+        "question": "Wer [ist/war] ein bemerkenswerter Mann?",
+        "answers": [
+          "Fred",
+          "Mein Urgroßvater"
+        ]
+      },
+      {
+        "id": 89,
+        "sentence": "Fred ist der einzige lebende Mann, der sich noch daran erinnert, dass mein Vater ein Baby war. Als Fred meinen Vater zum ersten Mal sah, war er zwölf [Jahre/Monate] alt.",
+        "question": "Wer war zwölf [Jahre/Monate] alt?",
+        "answers": [
+          "Fred",
+          "Mein Vater"
+        ]
+      },
+      {
+        "id": 90,
+        "sentence": "Im Juli erklärte Kamtchatka Jakutsk den Krieg. Da Jakutsks Armee viel besser ausgerüstet und zehnmal größer war, waren sie innerhalb weniger Wochen [siegreich/besiegt].",
+        "question": "Wer war [siegreich/besiegt]?",
+        "answers": [
+          "Jakutsk",
+          "Kamtchatka"
+        ]
+      },
+      {
+        "id": 91,
+        "sentence": "Elizabeth verlegte ihr Unternehmen von Sparta nach Troja, um Steuern zu sparen; die Steuern sind dort viel [höher/niedriger].",
+        "question": "Wo sind die Steuern [höher/niedriger]?",
+        "answers": [
+          "In Sparta",
+          "In Troja"
+        ]
+      },
+      {
+        "id": 92,
+        "sentence": "Esther glaubt, dass sie Versandkosten spart, wenn sie ihre Fabrik in Springfield statt in Franklin baut, weil [die meisten/keine] ihrer Kunden dort wohnen.",
+        "question": "In welcher Stadt wohnen [die meisten/keine] von Esthers Kunden?",
+        "answers": [
+          "Springfield",
+          "Franklin"
+        ]
+      },
+      {
+        "id": 93,
+        "sentence": "Schau mal! Da schwimmt ein [Hai/kleiner Fisch] direkt unterhalb dieser Ente! Er sollte sich schnell in Sicherheit bringen!",
+        "question": "Wer muss sich schnell in Sicherheit bringen?",
+        "answers": [
+          "Der Hai / Die Ente",
+          "Der kleine Fisch / Die Ente"
+        ],
+        "comment": "Die Antwort hängt davon ab, welches Wort ausgewählt wird."
+      },
+      {
+        "id": 94,
+        "sentence": "Im Park gibt es zu viele Hirsche, also brachte die Parkverwaltung ein kleines Rudel Wölfe hinein. Die Population sollte sich in den nächsten Jahren [vergrößern/verkleinern].",
+        "question": "Welche Population wird sich [vergrößern/verkleinern]?",
+        "answers": [
+          "Die Wölfe",
+          "Die Hirsche"
+        ]
+      },
+      {
+        "id": 95,
+        "sentence": "Archäologen haben herausgefunden, dass vor 20.000 Jahren Menschen in Laputa lebten. Sie suchten am Flussufer nach [Hirschen/Beweisen].",
+        "question": "Wer suchte nach [Hirschen/Beweisen]?",
+        "answers": [
+          "Die prähistorischen Menschen",
+          "Die Archäologen"
+        ]
+      },
+      {
+        "id": 96,
+        "sentence": "Die Wissenschaftler untersuchen drei Fischarten, die kürzlich im Indischen Ozean entdeckt wurden. Sie sind vor zwei Jahren [aufgetaucht/angefangen].",
+        "question": "Wer oder was ist vor zwei Jahren [aufgetaucht/angefangen]?",
+        "answers": [
+          "Die Fische",
+          "Die Wissenschaftler"
+        ]
+      },
+      {
+        "id": 97,
+        "sentence": "Die Journalisten interviewten die Stars des neuen Films. Sie waren sehr [kooperativ/hartnäckig], sodass das Interview lange dauerte.",
+        "question": "Wer war [kooperativ/hartnäckig]?",
+        "answers": [
+          "Die Stars",
+          "Die Journalisten"
+        ]
+      },
+      {
+        "id": 98,
+        "sentence": "Die Polizei verhaftete alle Bandenmitglieder. Sie versuchten, den Drogenhandel in der Nachbarschaft zu [betreiben/stoppen].",
+        "question": "Wer versuchte, den Drogenhandel zu [betreiben/stoppen]?",
+        "answers": [
+          "Die Gang",
+          "Die Polizei"
+        ]
+      },
+      {
+        "id": 99,
+        "sentence": "Ich stellte den Kuchen in den Kühlschrank. Er hat eine Menge [Butter/Essensreste] darin.",
+        "question": "Was hat eine Menge [Butter/Essensreste]?",
+        "answers": [
+          "Der Kuchen",
+          "Der Kühlschrank"
+        ]
+      },
+      {
+        "id": 100,
+        "sentence": "Sam hat sich beide Knöchel gebrochen und geht jetzt an Krücken. Aber in etwa einem Monat sollten sie [besser/überflüssig] sein.",
+        "question": "Was sollte [besser/überflüssig] sein?",
+        "answers": [
+          "Die Knöchel",
+          "Die Krücken"
+        ]
+      },
+      {
+        "id": 101,
+        "sentence": "Als die Befürworter des Gesetzentwurfs im Rathaus ankamen, waren sie überrascht, dass der Raum voller Gegner war. Sie waren klar in der [Mehrheit/Minderheit].",
+        "question": "Wer war in der [Mehrheit/Minderheit]?",
+        "answers": [
+          "Die Gegner",
+          "Die Befürworter"
+        ]
+      },
+      {
+        "id": 102,
+        "sentence": "Alle liebten die Haferkekse, nur wenige mochten die Schokoladenkekse. Nächstes Mal sollten wir [mehr/weniger] davon machen.",
+        "question": "Welche Kekse sollen wir nächstes Mal [mehr/weniger] machen?",
+        "answers": [
+          "Die Haferkekse",
+          "Die Schokoladenkekse"
+        ]
+      },
+      {
+        "id": 103,
+        "sentence": "Wir wollten unsere Newsletter-Exemplare auf alle Stühle im Auditorium legen, aber es gab einfach [nicht genug/zu viele] davon.",
+        "question": "Wovon gab es [zu viele/nicht genug]?",
+        "answers": [
+          "Stühle",
+          "Newsletter-Exemplare"
+        ]
+      },
+      {
+        "id": 104,
+        "sentence": "Ich stach eine Stecknadel durch eine Karotte. Als ich die Nadel herauszog, [hinterließ/hatte] sie ein Loch.",
+        "question": "Was [hinterließ/hatte] ein Loch?",
+        "answers": [
+          "Die Nadel",
+          "Die Karotte"
+        ]
+      },
+      {
+        "id": 105,
+        "sentence": "Ich fand keinen Löffel, also versuchte ich, meinen Kaffee mit einem Stift umzurühren. Das war eine schlechte Idee, weil er sich mit [Tinte/Kaffee] füllte.",
+        "question": "Was wurde mit [Tinte/Kaffee] gefüllt?",
+        "answers": [
+          "Der Kaffee",
+          "Der Stift"
+        ]
+      },
+      {
+        "id": 106,
+        "sentence": "Steve tut alles so wie Fred. Er [bewundert/beeinflusst] ihn sehr.",
+        "question": "Wer [bewundert/beeinflusst] wen?",
+        "answers": [
+          "Steve bewundert Fred",
+          "Fred beeinflusst Steve"
+        ]
+      },
+      {
+        "id": 107,
+        "sentence": "Der Tisch passt nicht durch die Tür, weil er zu [breit/eng] ist.",
+        "question": "Was ist zu [breit/eng]?",
+        "answers": [
+          "Der Tisch",
+          "Der Türrahmen"
+        ]
+      },
+      {
+        "id": 108,
+        "sentence": "Grace war glücklich, mir ihren Pullover gegen meine Jacke zu tauschen. Sie findet, dass sie daran [toll/altmodisch] aussieht.",
+        "question": "Was sieht an Grace [toll/altmodisch] aus?",
+        "answers": [
+          "Die Jacke",
+          "Der Pullover"
+        ]
+      },
+      {
+        "id": 109,
+        "sentence": "Bill findet, es sei unhöflich [von/für] Bert gewesen, auf sich aufmerksam zu machen.",
+        "question": "Wer machte auf sich aufmerksam?",
+        "answers": [
+          "Bill",
+          "Bert"
+        ],
+        "comment": "Winograd-Schema im weiteren Sinne (Subjekt von „auf sich aufmerksam machen“)."
+      },
+      {
+        "id": 110,
+        "sentence": "John [stellte Bill ein/stellte sich Bill zur Verfügung], um sich um ihn zu kümmern.",
+        "question": "Wer kümmert sich um wen?",
+        "answers": [
+          "Bill kümmert sich um John",
+          "John kümmert sich um Bill"
+        ]
+      },
+      {
+        "id": 111,
+        "sentence": "John [versprach/ befahl] Bill zu gehen, also ging er eine Stunde später.",
+        "question": "Wer ging?",
+        "answers": [
+          "John",
+          "Bill"
+        ]
+      },
+      {
+        "id": 112,
+        "sentence": "Sam Goodmans Biografie des spartanischen Generals Xenophanes vermittelt ein lebendiges Bild von den Schwierigkeiten, denen er sich in seiner [Kindheit/Forschung] stellen musste.",
+        "question": "Wer hatte Schwierigkeiten?",
+        "answers": [
+          "Xenophanes",
+          "Sam (der Autor)"
+        ]
+      },
+      {
+        "id": 113,
+        "sentence": "Emmas Mutter war schon lange tot, und ihr [Platz/Ausbildung] wurde von einer ausgezeichneten Gouvernante [eingenommen/geleitet].",
+        "question": "Wessen [Platz/Ausbildung] wurde [eingenommen/geleitet]?",
+        "answers": [
+          "Emmas Mutter",
+          "Emma"
+        ]
+      },
+      {
+        "id": 114,
+        "sentence": "Jane klopfte an Susans Tür, aber sie [antwortete/bekam keine Antwort] nicht.",
+        "question": "Wer [antwortete/bekam keine Antwort] nicht?",
+        "answers": [
+          "Susan",
+          "Jane"
+        ]
+      },
+      {
+        "id": 115,
+        "sentence": "Joe bezahlte den Detektiv, nachdem er den Abschlussbericht [erhalten/abgeliefert] hatte.",
+        "question": "Wer hat den Abschlussbericht [erhalten/abgeliefert]?",
+        "answers": [
+          "Joe",
+          "Der Detektiv"
+        ]
+      },
+      {
+        "id": 116,
+        "sentence": "Beth wurde nicht wütend auf Sally, die ihr den Weg abgeschnitten hatte, weil sie anhielt und [bis zehn zählte/sich entschuldigte].",
+        "question": "Wer [zählte bis zehn / entschuldigte sich]?",
+        "answers": [
+          "Beth",
+          "Sally"
+        ]
+      },
+      {
+        "id": 117,
+        "sentence": "Jim gab dem Barkeeper ein Zeichen und deutete auf sein [leeres Glas/den Toilettenschlüssel].",
+        "question": "Wessen [leeres Glas/Toilettenschlüssel] ist das?",
+        "answers": [
+          "Jims",
+          "Des Barkeepers"
+        ]
+      },
+      {
+        "id": 118,
+        "sentence": "Dan nahm den Rücksitz, während Bill sich den Vordersitz schnappte, weil sein „Erster!\" [schneller/langsamer] war.",
+        "question": "Wessen „Erster!“ war [schneller/langsamer]?",
+        "answers": [
+          "Bill",
+          "Dan"
+        ]
+      },
+      {
+        "id": 119,
+        "sentence": "Tom sagte beim Schach zu Ralph „Schach“, während er seinen Läufer [schlug/bewegte].",
+        "question": "Wessen Läufer hat Tom [geschlagen/bewegt]?",
+        "answers": [
+          "Ralphs",
+          "Toms"
+        ]
+      },
+      {
+        "id": 120,
+        "sentence": "Als Andrea im Sprühflugzeug über Susan hinwegflog, konnte sie die Landebahn [sehen/das Fahrwerk sehen].",
+        "question": "Wer konnte die Landebahn [sehen/das Fahrwerk sehen]?",
+        "answers": [
+          "Andrea",
+          "Susan"
+        ]
+      },
+      {
+        "id": 121,
+        "sentence": "Tom fuhr Ralph zur Schule, damit er nicht [laufen/alleine fahren] musste.",
+        "question": "Wer musste nicht [laufen/alleine fahren]?",
+        "answers": [
+          "Ralph",
+          "Tom"
+        ]
+      },
+      {
+        "id": 122,
+        "sentence": "Bill reichte John den halbleeren Teller weiter, weil er [satt/hungrig] war.",
+        "question": "Wer war [satt/hungrig]?",
+        "answers": [
+          "Bill",
+          "John"
+        ]
+      },
+      {
+        "id": 123,
+        "sentence": "Bill reichte das Gameboy an John weiter, weil seine Runde [vorbei/als nächste] war.",
+        "question": "Wessen Runde war [vorbei/als nächste]?",
+        "answers": [
+          "Bill",
+          "John"
+        ]
+      },
+      {
+        "id": 124,
+        "sentence": "Der Mann hob den Jungen auf sein [Etagenbett/seine Schultern].",
+        "question": "Wessen [Etagenbett/Schultern]?",
+        "answers": [
+          "Dem Jungen",
+          "Dem Mann"
+        ]
+      },
+      {
+        "id": 125,
+        "sentence": "[Tätschelnd/Dehnend] ihren Rücken lächelte die Frau das Mädchen an.",
+        "question": "Wessen Rücken [tätschelte/dehnte] die Frau?",
+        "answers": [
+          "Den des Mädchens",
+          "Ihren eigenen"
+        ]
+      },
+      {
+        "id": 126,
+        "sentence": "Billy weinte, weil Toby sein Spielzeug nicht [teilen/annehmen] wollte.",
+        "question": "Wem gehörte das Spielzeug?",
+        "answers": [
+          "Toby",
+          "Billy"
+        ]
+      },
+      {
+        "id": 127,
+        "sentence": "Lily sprach mit Donna und brach damit ihr [Konzentration/Schweigen].",
+        "question": "Wessen [Konzentration/Schweigen] wurde gebrochen?",
+        "answers": [
+          "Donnas",
+          "Lilys"
+        ]
+      },
+      {
+        "id": 128,
+        "sentence": "Als Tommy sein Eis fallen ließ, kicherte Timmy, deshalb warf Vater ihm einen [strengen/mitfühlenden] Blick zu.",
+        "question": "Wer bekam den Blick vom Vater?",
+        "answers": [
+          "Timmy",
+          "Tommy"
+        ]
+      },
+      {
+        "id": 129,
+        "sentence": "Während Ollie Tommy die lange Treppe hinauftrug, [baumelten/schmerzten] seine Beine.",
+        "question": "Wessen Beine [baumelten/schmerzten]?",
+        "answers": [
+          "Tommys",
+          "Ollies"
+        ]
+      },
+      {
+        "id": 130,
+        "sentence": "Der Vater trug den schlafenden Jungen in seinen [Armen/Kinderbett].",
+        "question": "Wessen [Arme/Kinderbett]?",
+        "answers": [
+          "Dem Vater",
+          "Dem Jungen"
+        ]
+      },
+      {
+        "id": 131,
+        "sentence": "Die Frau hielt das Mädchen an ihrer [Brust/Willen] fest.",
+        "question": "Wessen [Brust/Willen]?",
+        "answers": [
+          "Der Frau",
+          "Des Mädchens"
+        ]
+      },
+      {
+        "id": 132,
+        "sentence": "Pams Eltern kamen nach Hause und fanden sie mit ihrem Freund Paul beim Sex. Sie waren darüber [verlegen/wütend].",
+        "question": "Wer war darüber [verlegen/wütend]?",
+        "answers": [
+          "Pam und Paul",
+          "Pams Eltern"
+        ]
+      },
+      {
+        "id": 133,
+        "sentence": "Dr. Adams teilte Kate mit, dass sie [Krebs/ihren Ruhestand] habe, und präsentierte mehrere Optionen für die weitere Behandlung.",
+        "question": "Wer hatte [Krebs/sich zur Ruhe gesetzt]?",
+        "answers": [
+          "Kate",
+          "Dr. Adams"
+        ]
+      },
+      {
+        "id": 134,
+        "sentence": "Dan musste Bill davon abhalten, mit dem verletzten Vogel herumzuspielen. Er ist sehr [mitfühlend/grausam].",
+        "question": "Wer ist [mitfühlend/grausam]?",
+        "answers": [
+          "Dan",
+          "Bill"
+        ]
+      },
+      {
+        "id": 135,
+        "sentence": "George bekam Freikarten für das Theaterstück, doch er gab sie Eric, [weil/obwohl] er [besonders/nicht besonders] erpicht darauf war, es zu sehen.",
+        "question": "Wer [war/war nicht] erpicht darauf, das Stück zu sehen?",
+        "answers": [
+          "weil & besonders: Eric",
+          "weil & nicht besonders: George",
+          "obwohl & besonders: George",
+          "obwohl & nicht besonders: Eric"
+        ]
+      },
+      {
+        "id": 136,
+        "sentence": "Jane gab Joan Süßigkeiten, weil sie [hungrig/nicht hungrig] war.",
+        "question": "Wer [war/war nicht] hungrig?",
+        "answers": [
+          "Joan",
+          "Jane"
+        ]
+      },
+      {
+        "id": 137,
+        "sentence": "Ich versuchte, ein Bild eines Obstgartens zu malen, mit Zitronen in den Zitronenbäumen, aber sie sahen eher aus wie [Glühbirnen/Telefonmasten].",
+        "question": "Was sah aus wie [Glühbirnen/Telefonmasten]?",
+        "answers": [
+          "Die Zitronen",
+          "Die Bäume"
+        ]
+      },
+      {
+        "id": 138,
+        "sentence": "James bat Robert um einen Gefallen, aber er [lehnte ab/wurde abgelehnt].",
+        "question": "Wer [lehnte ab/wurde abgelehnt]?",
+        "answers": [
+          "Robert",
+          "James"
+        ]
+      },
+      {
+        "id": 139,
+        "sentence": "Kirilov überließ Shatov das Präsidentenamt, weil er [beliebter/weniger beliebt] war.",
+        "question": "Wer war [beliebter/weniger beliebt]?",
+        "answers": [
+          "Shatov",
+          "Kirilov"
+        ]
+      },
+      {
+        "id": 140,
+        "sentence": "Emma spielte Janie den Ball nicht zu, obwohl sie [frei war/sah, dass sie frei war].",
+        "question": "Wer [war frei / sah, dass die andere frei war]?",
+        "answers": [
+          "Janie",
+          "Emma"
+        ]
+      },
+      {
+        "id": 141,
+        "sentence": "Joe sah gestern Abend seinen Bruder beim Skifahren im Fernsehen, aber der Trottel [erkannte ihn nicht/hatte keine Jacke an].",
+        "question": "Wer ist der Trottel?",
+        "answers": [
+          "Joe",
+          "Joes Bruder"
+        ]
+      },
+      {
+        "id": 142,
+        "sentence": "Ich legte das [schwere Buch/Schmetterlingsflügel] auf den Tisch und er brach zusammen.",
+        "question": "Was ging kaputt?",
+        "answers": [
+          "Der Tisch / Das Buch",
+          "Der Schmetterlingsflügel / Der Tisch"
+        ],
+        "comment": "Abhängig von der Wortwahl."
+      },
+      {
+        "id": 143,
+        "sentence": "Madonna feuerte ihre Trainerin, weil sie mit ihrem Freund [schlief/ihn nicht ausstehen konnte].",
+        "question": "Wer [schlief mit wessen Freund / konnte wessen Freund nicht ausstehen]?",
+        "answers": [
+          "Die Trainerin schlief mit Madonnas Freund",
+          "Madonna konnte den Freund der Trainerin nicht ausstehen"
+        ]
+      },
+      {
+        "id": 144,
+        "sentence": "Carol glaubte, dass Rebecca [vermutete/bereute], sie habe die Uhr gestohlen.",
+        "question": "Wer wird verdächtigt, die Uhr gestohlen zu haben? / Wer hat sie gestohlen?",
+        "answers": [
+          "Carol / Rebecca"
+        ]
+      },
+      {
+        "id": 145,
+        "sentence": "Dieses Buch brachte Shakespeare [Ovid/Goethe] näher; es war ein großer Einfluss auf sein Schreiben.",
+        "question": "Wessen Schreiben wurde beeinflusst?",
+        "answers": [
+          "Shakespeare",
+          "Goethe"
+        ]
+      },
+      {
+        "id": 146,
+        "sentence": "Dieses Buch machte Shakespeare mit [Ovid/Goethe] bekannt; es war eine hervorragende Auswahl seiner Werke.",
+        "question": "Eine hervorragende Auswahl wessen Werke?",
+        "answers": [
+          "Ovids",
+          "Shakespeare"
+        ]
+      },
+      {
+        "id": 147,
+        "sentence": "Alice suchte in der Menge nach ihrer Freundin Jade. Da sie immer [Glück hat/einen roten Turban trägt], fand Alice sie schnell.",
+        "question": "Wer hat immer [Glück/trägt einen roten Turban]?",
+        "answers": [
+          "Alice",
+          "Jade"
+        ]
+      },
+      {
+        "id": 148,
+        "sentence": "Während eines Fangspiels [verfolgte/entkam] Ethan Luke, weil er „dran“ war.",
+        "question": "Wer war „dran“?",
+        "answers": [
+          "Ethan",
+          "Luke"
+        ]
+      },
+      {
+        "id": 149,
+        "sentence": "Bei der Loebner-Competition konnten die Juroren nicht herausfinden, welche Teilnehmer Chatbots waren, weil sie so [fortschrittlich/dumm] waren.",
+        "question": "Wer war so [fortschrittlich/dumm]?",
+        "answers": [
+          "Die Chatbots",
+          "Die Juroren"
+        ]
+      },
+      {
+        "id": 150,
+        "sentence": "Der Nutzer änderte sein Passwort von „GrWQWu8JyC“ auf „willow-towered Canopy Huntertropic wrestles“, weil es leicht zu [merken/vergessen] war.",
+        "question": "Was war leicht zu [merken/vergessen]?",
+        "answers": [
+          "Das Passwort „GrWQWu8JyC“",
+          "Das Passwort „willow-towered Canopy Huntertropic wrestles“"
+        ]
+      }
+    ]
+  }
+  
