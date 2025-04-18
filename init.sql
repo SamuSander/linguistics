@@ -19,26 +19,26 @@
 -- Current Database: `insight_lab`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `drm` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `winograd` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
-USE `drm`;
+USE `winograd`;
 
 --
 -- Table structure for table `insight_config`
 --
 
-DROP TABLE IF EXISTS `drm_config`;
+DROP TABLE IF EXISTS `winograd_config`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `drm_config` (
+CREATE TABLE `winograd_config` (
   `participantID` text,
   `email` text,
   `status` text,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `drm_cont`;
-CREATE TABLE `drm_cont` (
+DROP TABLE IF EXISTS `winograd_cont`;
+CREATE TABLE `winograd_cont` (
     `participantID` text,
   `stimulus` text,
   `trial_index` text,
@@ -68,8 +68,8 @@ CREATE TABLE `drm_cont` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
-DROP TABLE IF EXISTS `drm_end`;
-CREATE TABLE `drm_end` (
+DROP TABLE IF EXISTS `winograd_end`;
+CREATE TABLE `winograd_end` (
     `participantID` text,
   `stimulus` text,
   `trial_index` text,

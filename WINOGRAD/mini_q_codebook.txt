@@ -1,0 +1,65 @@
+CODEBOOK FOR THE MINI‑Q JSPSYCH DATA
+See mini_q.csv
+
+GENERAL NOTE ---------------------------------------------------------------------------
+from Schubert, A. L., Löffler, C., Wiebel, C., Kaulhausen, F., & Baudson, T. G. (2024). Don't waste your time measuring intelligence: Further evidence for the validity of a three-minute speeded reasoning test. Intelligence, 102, 101804.
+
+The test materials consist of a 64‑item speeded reasoning task (mini‑Q) implemented in jsPsych. 
+Each trial presents a verbal statement and a figural arrangement of a circle (C), triangle (T), spacer (S), and square (V). 
+The code automatically compares the participant’s response to the pre‑specified correctAnswer for each item. 
+In online deployments, hide or obfuscate the JavaScript variables containing the solutions so that participants cannot inspect them in the console.
+
+COLUMNS --------------------------------------------------------------------------------
+success, timeout, failed_images
+These fields come from the preload plugin. They indicate whether assets loaded correctly at the start of the experiment.
+
+trial_type
+The jsPsych plugin used (e.g. html-button-response)
+
+trial_index
+Sequential trial number across the entire experiment, including instructions and preload trials
+
+time_elapsed
+Milliseconds elapsed since the experiment began
+
+internal_node_id
+jsPsych’s hierarchical identifier for the trial within nested timelines
+
+stage
+Custom label marking “practice” or “test” trials
+
+question
+The German prompt shown (e.g. “Das Dreieck zieht das Viereck vor”)
+
+shapes
+A four‑character code for left‑to‑right figure order: C = Circle, T = Triangle, S = Spacer, V = Square
+
+correctAnswer
+Ground‑truth for each item as defined in items_mini_q.js (1 = true, 0 = false)
+
+response
+Participant’s choice: 0 = “false” button, 1 = “true” button; null if no response
+
+rt
+Reaction time in milliseconds; null if no response
+
+correct
+Boolean flag indicating response === correctAnswer (true = correct, false = incorrect or timeout)
+
+item_index
+1‑based index of the test item within the 64‑item set
+
+stimulus
+Full HTML string displayed on the trial (includes table, shapes, etc.)
+
+DERIVED METRICS -------------------------------------------------------------------------
+total_score
+Sum of all correct responses across the 64 test trials
+
+accuracy_rate
+total_score divided by 64
+
+completion_time
+time_elapsed at the last test trial minus time_elapsed at the first test trial
+
+Exclude instruction and practice trials when computing summary metrics.

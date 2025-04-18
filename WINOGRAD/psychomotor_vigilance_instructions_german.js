@@ -112,7 +112,7 @@ var pvtMainInstructions = {
   
   `<br><br>
   <div class="instructions" style="max-width:${instructionsWidth}px;"> 
-    Super, Sie sind bist bereit für die Aufgabe!<br>
+    Super, Sie sind bereit für die Aufgabe!<br>
     Drücken Sie die Leertaste mit Ihrer dominanten Hand. 
     Wenn Sie auf "weiter" clicken, beginnt die Aufgabe. 
     Sie wird ${pvtTimeLimit/60000} Minuten in Anspruch nehmen.</b> 
@@ -143,7 +143,7 @@ var pvtEnd = {
   
   `<br><br>
   <div class="instructions" style="max-width:${instructionsWidth}px;">
-    Gut gemacht, Sie haben des Test zur Reaktionsfähigkeit abgeschlossen!<br>
+    Gut gemacht, Sie haben den Test zur Reaktionsfähigkeit abgeschlossen!<br>
     Nun folgt die Einprägungsphase. 
   </div>
   <br><br>`,

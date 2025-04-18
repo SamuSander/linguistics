@@ -358,18 +358,3 @@ function startTimer() {
     minutes = timer();
 }
 
-// Shared trials ---------------------------------------------------------------------------------------
-
-var enter_fullscreen = {
-    type: jsPsychFullscreen,
-    message: '<p>Der Browser wird nun in den Vollbildmodus wechseln.</p><br>',
-    button_label: 'weiter',
-    fullscreen_mode: true,
-    delay_after: 500
-}
-
-var exit_fullscreen = {
-    type: jsPsychFullscreen,
-    fullscreen_mode: false,
-    delay_after: 0
-}
