@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DRM_Experiment</title>
+    <title>Experiment</title>
     <link rel="icon" type="image/x-icon" href="pics/favicon.ico">
     <script src="jspsych/jspsych.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
@@ -22,34 +22,50 @@
     <link href="./custom.css" rel="stylesheet" type="text/css"></link> 
 
     <script>
+      
       /*initialize jsPsych*/
       const jsPsych = initJsPsych({
+        show_progress_bar: true,
+        auto_update_progress_bar: true,
         on_data_update: function(data) {
           var trial_json_result = {0:data};
-          serverComm.save_data(trial_json_result, 'php/save_data_cont.php', 'drm_cont');
+          serverComm.save_data(trial_json_result, 'php/save_data_cont.php', 'winograd_cont');
           },
       });
+
     </script>
 
-    <script src="00_main.js"></script>
-    <script src="./01_consent_form.js"></script>
-    <script src="./00_demographics_german.js"></script>
+    <!-- MAIN-->
+    <script src="./main.js"></script>
+    <script src="./shared_trials.js"></script>
+    <script src="./consent_form.js"></script>
+    <script src="./demographics_german.js"></script>
 
-    <script src="./hagen_preload.js"></script>
-    <script src="./hagen_matrices_instructions_german.js"></script> <!-- Switch file name to change language. -->
-    <script src="./hagen_matrices_functions.js"></script>
-    <script src="./hagen_matrices_trials.js"></script>
-    <script src="./hagen_matrices_initialise.js"></script>
-
+    <!-- PVT-->
     <script src="./psychomotor_vigilance_functions.js"></script>
     <script src="./psychomotor_vigilance_initialise.js"></script>
     <script src="./psychomotor_vigilance_trials.js"></script>
-    <script src="./psychomotor_vigilance_instructions_german.js"></script> <!-- Change to psychomotor_vigilance_instructions_german.js for German version -->
+    <script src="./psychomotor_vigilance_instructions_german.js"></script> 
 
+    <!-- RWT-->
     <script src="./rwt_german.js"></script>
-    <!--<script src="./semantic_differential.js"></script>-->
-    <script src="./experiment.js"></script>
+    <script src="./get_sequence.js"></script>
+    
+    <!-- SPQ-G & AQ-->
+    <script src="./spq_german.js"></script>
+    <script src="./aqK_german.js"></script>
 
+    <!-- MINI-Q -->
+    <script src="./mini_q_norms.js"></script>
+    <script src="./mini_q_items.js"></script>
+    <script src="./mini_q.js"></script>
+
+    <!-- TIMELINE -->
+    <script src="./experiment.js"></script>
+    
+    <script>
+      //jsPsych.run(timeline)
+  </script>
   </head>
   <body></body>
 </html>

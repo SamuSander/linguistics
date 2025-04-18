@@ -371,7 +371,16 @@ var demographics = {
     <span id="email-warning" style="color: red; display: none;">Die E-Mail-Adressen stimmen nicht überein.</span>
 
 
+    <!-- Telefonnummer -->
+    <p>Was ist Ihre Telefonnummer?<br>
+    <input class="large-input" type="tel" id="phone" required="required" name="phone" 
+           placeholder="Telefonnummer" size="40" 
+           pattern="[0-9+\s-]+"
+           title="Bitte geben Sie eine gültige Telefonnummer ein">
+    </p>
+
     <hr>
+
     <!-- Hier fangen die neuen Fragen an -->
 
     <p>Was ist Ihr höchster schulischer Abschluss?<br>
@@ -425,9 +434,9 @@ var demographics = {
     </p>
     
     <div name="residency-details-div" id="residency-details-div" style="display:none;">
-    <p>Wenn ja, geben Sie bitte die ersten beiden Ziffern <br>Ihrer Postleitzahl an:<br>
+    <p>Wenn ja, geben Sie bitte Ihre Postleitzahl an:<br>
         <input class="large-input" type="text" name="postcode" id="postcode"
-        placeholder="Erste beiden Ziffern der Postleitzahl" size ="40" maxlength="2">
+        placeholder="Postleitzahl" size ="40" maxlength="5">
     </p>
     <p>Leben Sie in einer städtischen oder ländlichen Gegend?<br>
         <select class="large-select" id="area" required="required" name="area">
@@ -497,6 +506,13 @@ var demographics = {
     // Stringify, because array can not be saved in the database
     data.response = JSON.stringify(data.response);
 
+    updateConfig(
+        "participantID",
+        participantID,
+        ['demographics'],
+        [data.response]
+    );
+
     }
 };
 
@@ -535,370 +551,3 @@ var checkDemographicsLoop = {
     }
 };
 
-
-async function getCondition(stratumId) {
-    return new Promise((resolve, reject) => {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "php/get_condition.php", true);
-        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xmlhttp.send("stratumId=" + encodeURIComponent(stratumId));
-
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    try {
-                        var response = JSON.parse(this.responseText);
-                        if (response.status === 'success') {
-                            resolve(response.condition);
-                        } else {
-                            reject(response.message);
-                        }
-                    } catch (e) {
-                        reject("Error parsing the server response: " + this.responseText);
-                    }
-                } else {
-                    reject("Error with the request: status code " + this.status);
-                }
-            }
-        };
-    });
-}
-
-async function getConditionStrataFull(stratumId) {
-    return new Promise((resolve, reject) => {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "php/get_condition_stratafull.php", true);
-        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xmlhttp.send("stratumId=" + encodeURIComponent(stratumId));
-
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    try {
-                        var response = JSON.parse(this.responseText);
-                        if (response.status === 'success') {
-                            resolve(response.condition);
-                        } else {
-                            reject(response.message);
-                        }
-                    } catch (e) {
-                        reject("Error parsing the server response: " + this.responseText);
-                    }
-                } else {
-                    reject("Error with the request: status code " + this.status);
-                }
-            }
-        };
-    });
-}
-
-
-// Function to check strata based on demographic data
-async function checkStrata(demographic) {
-    return new Promise((resolve, reject) => {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "php/check_strata.php", true);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify(demographic));
-
-        xmlhttp.onreadystatechange = function() {
-            // Log readyState and status for debugging
-            console.log(`ReadyState: ${this.readyState}, Status: ${this.status}`);
-            
-            if (this.readyState == 4) {
-                // Log the raw response text for debugging
-                console.log("Raw response:", this.responseText);
-                
-                if (this.status == 200) {
-                    try {
-                        var response = JSON.parse(this.responseText);
-                        // Log the parsed response for debugging
-                        console.log("Parsed response:", response);
-                        // Check if the response structure contains the expected 'status' field
-                        if(response.status) {
-                            resolve(response);
-                        } else {
-                            // Handle unexpected JSON structure
-                            console.error('Unexpected JSON structure:', response);
-                            reject('Unexpected JSON structure in server response.');
-                        }
-                    } catch (e) {
-                        console.error("Error parsing the server response:", e);
-                        reject("Error parsing the server response: " + this.responseText);
-                    }
-                } else {
-                    // Handle non-200 responses
-                    console.error("Error with the request: status code " + this.status);
-                    reject("Error with the request: status code " + this.status);
-                }
-            }
-        };
-    });
-}
-
-var screeningEnd = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus: function() {
-        return `
-        <div class="instructions" style="padding: 30px; margin: 10px; font-size: 18px; text-align: left;background-color: white; border-radius: 10px;max-width:${instructionsWidth}px;">
-            Bitte warten Sie, während wir Ihre Daten verarbeiten...<br><br>
-            <div id="wait" style="text-align: center;"><span style="font-size: 30px; color: #a90b00;"><b>BITTE WARTEN</b></span></div>
-        </div>`;
-    },
-    choices: ['Fortfahren'],
-    button_html: '<button class="jspsych-btn" tabindex="-1" style="visibility:hidden;">%choice%</button>',
-    trial_duration: 60000, // 1 min time
-    on_load: async function() {
-        var btn = document.querySelector('.jspsych-btn');
-        btn.classList.remove('jspsych-btn'); // Korrigiere den Klassenname, entferne den Punkt vor 'jspsych-btn'
-        btn.classList.add('white-btn');
-        var disp = document.querySelector('.jspsych-display-element');
-        disp.style.background = '#f2f2f2';
-
-        // not eligible
-        //var demographic = JSON.parse('{"age":"13","sex":"Male","gender":"male","identity":"","ethnicity":"Ägypten","language":"German","other_lang":"","fluency":"yes","email":"samuelsanderzimannheim@gmail.com","confirm_email":"samuelsanderzimannheim@gmail.com","school_degree":"Haupt/ Volksschulabschluss","professional_degree":"Without certificate or qualification","occupation":"23","relationship_status":"single","children":"no","children-number":"","living_in_germany":"yes","postcode":"23","area":"urban"}')
-        
-        // stratum full
-        //var demographic = JSON.parse('{"age":"34","sex":"Male","gender":"female","identity":"","ethnicity":"Andorra","language":"German","other_lang":"","fluency":"yes","email":"samsander@gmx.net","confirm_email":"samsander@gmx.net","school_degree":"Interm. school leaving certif./upper sec. level","professional_degree":"Certificate from a specialised technical college","occupation":"-","relationship_status":"widowed","children":"no","children-number":"","living_in_germany":"yes","postcode":"23","area":"urban"}')
-        
-        // success
-        //var demographic = JSON.parse('{"age":"53","sex":"Male","gender":"male","identity":"","ethnicity":"Ägypten","language":"German","other_lang":"","fluency":"yes","email":"samuelsanderzimannheim@gmail.com","confirm_email":"samuelsanderzimannheim@gmail.com","school_degree":"Haupt/ Volksschulabschluss","professional_degree":"Apprenticeship","occupation":"23","relationship_status":"single","children":"no","children-number":"","living_in_germany":"yes","postcode":"23","area":"urban"}')
-        
-        // not suitable
-        //var demographic = JSON.parse('{"age":"53","sex":"Female","gender":"male","identity":"","ethnicity":"Ägypten","language":"German","other_lang":"","fluency":"yes","email":"samuelsanderzimannheim@gmail.com","confirm_email":"samuelsanderzimannheim@gmail.com","school_degree":"Without certificate or qaulification","professional_degree":"Doctorate","occupation":"23","relationship_status":"single","children":"no","children-number":"","living_in_germany":"yes","postcode":"23","area":"urban"}')
-        demographic = JSON.parse(demographic) //always parse the json
-
-        function checkEligibility(demographic) {
-            let inclusion = {
-                status: 'excluded',
-                reason: []
-            };
-        
-            // Check age criteria
-            console.log(demographic.age)
-            let age = parseInt(demographic.age, 10);
-            if (isNaN(age) || age < 20 || age > 59) {
-                inclusion.reason.push('Age not between 20 and 59');
-            }
-        
-            // Check residency
-            if (demographic.living_in_germany !== "yes") {
-                inclusion.reason.push('Not living in Germany');
-            }
-        
-            // Check language fluency
-            if (demographic.language !== "German" || demographic.fluency !== "yes") {
-                inclusion.reason.push('Language not German or not fluent');
-            }
-        
-            // If no exclusion reasons, participant is included
-            if (inclusion.reason.length === 0) {
-                inclusion.status = 'included';
-            }
-        
-            return inclusion;
-        }
-        
-        let eligibility = checkEligibility(demographic)
-        console.log(eligibility)
-
-    
-        jsPsych.data.addProperties({ eligibilityStatus: eligibility.status });
-    
-        if (eligibility.status === 'excluded') {
-            console.log('Participant is excluded based on screening criteria.');
-            // Setze die Verarbeitung fort, um die Fortfahren-Taste am Ende sichtbar zu machen.
-        } else {
-            try {
-                let strataResponse = await checkStrata(demographic);
-                console.log(strataResponse)
-                
-                if (strataResponse.status === 'success') {
-                    console.log('Stratum ID: ' + strataResponse.StratumID);
-                    let condition = await getCondition(strataResponse.StratumID);
-                    console.log('Assigned condition:', condition);
-        
-                    //condition_s2 = ""
-                    condition_s2 = condition === "sleep" ? "wake" : "sleep";
-                    console.log('Assigned condition for session 2:', condition_s2);
-                    jsPsych.data.addProperties({
-                        condition: condition,
-                        condition_s2: condition_s2,
-                        StratumID: strataResponse.StratumID 
-                    });
-                    
-                    sendConfigurationStatusUpdate(
-                        "orseeId",
-                        orseeId,
-                        ["condition", "condition_s2", "StratumID"],
-                        [condition, condition_s2, strataResponse.StratumID],
-                        "orseeId"
-                    );
-        
-                } else if (strataResponse.status === "error") {
-                    if (strataResponse.StratumID) {
-                        console.log('Stratum ID: ' + strataResponse.StratumID);
-                        jsPsych.data.addProperties({StratumID: strataResponse.StratumID});
-            
-                        sendConfigurationStatusUpdate(
-                            "orseeId",
-                            orseeId,
-                            ['StratumID'],
-                            [strataResponse.StratumID],
-                            "orseeId"
-                        );
-                    }
-
-                    console.error('Error with strata check:', strataResponse.message);
-                    jsPsych.data.addProperties({ strataProblem: strataResponse.message });
-                } else {
-                    console.error('Unhandled strata response status:', strataResponse.status);
-                }
-            } catch (error) {
-                console.error('Error checking strata:', error);
-                // Fehlerbehandlung
-            }
-        }
-
-        // Mache die "Fortfahren"-Taste unabhängig vom Ergebnis der Überprüfungen sichtbar
-        document.getElementById("wait").innerHTML = '<span style="font-size: 30px; color: #006106;"><b>FERTIG</b></span><br>Klicken Sie bitte auf "Fortfahren".';
-        
-        setTimeout(() => {
-            var continueButton = document.querySelector('#jspsych-html-button-response-button-0 button');
-            continueButton.style.visibility = 'visible';
-
-            setTimeout(() => {
-                continueButton.disabled = false;
-            }, 2000); // 2 Sekunden, bevor die Schaltfläche klickbar gemacht wird
-        }, 500); // Kurze Verzögerung, bevor die Schaltfläche sichtbar gemacht wird
-    }
-};
-
-var stratumFullTrial = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus: 
-    `<div class="instructions" style="padding: 30px; margin: 10px; font-size: 18px; text-align: left;background-color: white; border-radius: 10px;max-width:${instructionsWidth}px;">
-    Die Studie hat bereits genügend Teilnehmer erreicht, doch Ihre Unterstützung kann weiterhin den Unterschied machen. <b>Machen Sie mit und fördern Sie den wissenschaftlichen Fortschritt.</b> Beachten Sie: Die Teilnahme an der Gutscheinverlosung ist nun geschlossen.
-    <br><br>
-
-    </div>
-    <br>`,
-    choices: [ 'Nein, ich will nicht teilnehmen', 'Ja, ich will weiter teilnehmen'],
-    button_html: [
-        // Make dropout button red
-        `<button class="jspsych-btn" tabindex="-1" style="background-color: #f35353;">%choice%</button>`,
-        `<button class="white-btn" tabindex="-1" style="background-color: #00FF00;">%choice%</button>`
-      ],
-    on_finish: function(data) {
-  
-        // Speichere die Antwort des Teilnehmers in jsPsych's Daten
-        if (data.response == "0") { // Angenommen, "0" ist die Option "Ich habe keine Zeit"
-          jsPsych.data.addProperties({ userOptedOutStrata: true });
-        } else {
-          jsPsych.data.addProperties({ userOptedOutStrata: false });
-        }
-      }
-};
-
-// var ifExcludedStrata = {
-//     timeline: [youreOut],
-//     conditional_function: function() {
-//         var lastTrialData = jsPsych.data.get().last(1).values()[0];
-//         if(lastTrialData.userOptedOutStrata === true) {
-//             // Füge die Eigenschaft hier hinin, bevor du true zurückgibst
-//             jsPsych.data.addProperties({inclusion: "failedScreening"});
-//             return true;
-//         }
-//         // Falls der Benutzer sich nicht ausgeschlossen hat, kannst du false zurückgeben oder eine andere Logik anwenden
-//         return false;
-//     }
-// };
-
-
-var checkStrataFull = {
-    timeline: [stratumFullTrial],
-    conditional_function: function() {
-        var lastTrialData = jsPsych.data.get().last(1).values()[0];
-        console.log(lastTrialData)
-        // Logik, um zu überprüfen, ob das Stratum voll ist
-        return lastTrialData.strataProblem === "Stratum is full";
-    }
-};
-
-// var checkNoSuitableStratum = {
-//     timeline: [youreOut],
-//     conditional_function: function() {
-//         var lastTrialData = jsPsych.data.get().last(1).values()[0];
-//         if (lastTrialData.strataProblem === "No suitable stratum found") {
-//             // Füge die Eigenschaft hinzu, bevor du true zurückgibst
-//             jsPsych.data.addProperties({inclusion: "failedScreening"});
-//             return true;
-//         }
-//         // Falls kein Problem mit dem Stratum vorliegt, kannst du false zurückgeben
-//         return false;
-//     }
-// };
-
-// var ifExcludedStrataDecision = {
-//     timeline: [youreOut],
-//     conditional_function: function() {
-//         var lastTrialData = jsPsych.data.get().last(1).values()[0];
-//         if (lastTrialData.userOptedOutStrata === true) {
-//             // Füge die Eigenschaft hinzu und gib true zurück, um die Timeline youreOut zu starten
-//             jsPsych.data.addProperties({inclusion: "failedScreening"});
-//             return true;
-//         } else {
-//             // Führe eine sofort ausgeführte asynchrone Funktion aus, um getCondition aufzurufen
-//             (async () => {
-//                 try {
-//                     condition = await getConditionStrataFull(lastTrialData.StratumID); // Nehme an, StratumID ist verfügbar
-//                     console.log('Assigned condition:', condition);
-                    
-//                     condition_s2 = condition === "sleep" ? "wake" : "sleep";
-//                     console.log('Assigned condition for session 2:', condition_s2);
-                    
-//                     // Aktualisiere die Daten
-//                     jsPsych.data.addProperties({
-//                         condition: condition,
-//                         condition_s2: condition_s2
-//                     });
-                    
-//                     // Beispiel, wie Daten an den Server gesendet werden könnten. Dies muss an Ihre spezifische Implementierung angepasst werden.
-//                     sendConfigurationStatusUpdate(
-//                         "orseeId", // varwhere
-//                         orseeId, // vareqls
-//                         ["condition", "condition_s2", "StratumID", "excess"], // colnames
-//                         [condition, condition_s2, lastTrialData.StratumID, "yes"], // values
-//                         "orseeId"  // idType
-//                     );
-//                 } catch (error) {
-//                     console.error('Error fetching condition:', error);
-//                     // Fehlerbehandlung, z.B. Fehlermeldung an den Server senden oder in jsPsych-Daten speichern
-//                 }
-//             })();
-            
-//             // Da conditional_function nicht asynchron sein kann, geben wir hier direkt false zurück.
-//             // Beachten Sie, dass dies die asynchronen Operationen nicht abbricht.
-//             return false;
-//         }
-//     }
-// };
-
-
-// var ifExcludeddemographics = {
-//     timeline: [youreOut],
-//     conditional_function: function() {
-//         // Access to the saved suitability status
-//         var eligibilityStatus = jsPsych.data.getLastTrialData().select('eligibilityStatus').values[0];
-        
-//         console.log(eligibilityStatus)
-
-//         // Check whether the status is 'excluded'
-//         if (eligibilityStatus === 'excluded') {
-//             jsPsych.data.addProperties({inclusion: "failedScreening"});
-//             return true;
-//         } else {
-//             return false;
-//         }
-//     }
-// };

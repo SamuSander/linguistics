@@ -1,3 +1,5 @@
+// rwt_german.js
+
 // FUNCTIONS ---------------------------------------------------------------------------------------------------------------------------------
 
 // Global variables that are defined here, and later used in the timer functions
@@ -17,8 +19,8 @@ function randomSelect(array) {
 
 // Set up the configuration
 function setupExperimentConfig() {
-  const professionsorHobbiesOptions = ['Berufe', 'Hobbies'];
-  const porMOptions = ['P', 'M'];
+  const professionsorHobbiesOptions = ['Mock1', 'Mock2'];
+  const porMOptions = ['Mock3', 'Mock4'];
 
   experimentConfig.ProfessionsorHobbies = randomSelect(professionsorHobbiesOptions);
   experimentConfig.PorM = randomSelect(porMOptions);
@@ -166,7 +168,7 @@ var rwtIntro = {
     //jsPsych.setProgressBar(progressBarStatus);
   },
   type: jsPsychHtmlButtonResponse,
-  data: { trial: 'instructions_study' },
+  data: { trial: 'instructions_rwt' },
   stimulus:
   `
   <div id="parchment">
@@ -179,6 +181,7 @@ var rwtIntro = {
         <b>Dabei sollen Sie verschiedene Regeln beachten:</b><br>
         <li>Sie sollen nur Wörter aufschreiben, die in einer deutschen Zeitung 
         oder in einem deutschen Buch verwendet werden könnten.</li>
+        <li>Die Wörter dürfen nur Nomen sein.</li>
         <li>Dabei sollen Sie keine Wörter mehrfach aufschreiben.</li>
         <li>Die Wörter dürfen aber auch nicht mit dem gleichen 
         Wortstamm beginnen, also „Palast-Palasttor-Palasthof-Palastdame“ 
@@ -235,7 +238,7 @@ var rwtPorM = {
     return `
     <div align="center"><span style="font-size:50px" id="matrix-time">2:00</span></div>
     <br><br>
-    <b>Giben Sie so viele Wörter ein, die mit dem Buchstaben <span style="color: blue;">'${experimentConfig.PorM}'</span> beginnen, wie Sie können.<br> Drücken Sie nach jedem Wort die Eingabetaste.</b><br><br><br>`;
+    <b>Geben Sie so viele Wörter ein, die mit dem Buchstaben <span style="color: blue;">'${experimentConfig.PorM}'</span> beginnen, wie Sie können.<br> Drücken Sie nach jedem Wort die Eingabetaste.</b><br><br><br>`;
   },
   type: TextInputTrial,
   data: function() {
@@ -256,7 +259,7 @@ var rwtProfessionsorHobbies = {
     return `
     <div align="center"><span style="font-size:50px" id="matrix-time">2:00</span></div>
     <br><br>
-    <b>Giben Sie so viele <span style="color: blue;">${experimentConfig.ProfessionsorHobbies}</span> ein, wie Sie können.<br> Drücken Sie nach jedem Wort die Eingabetaste.</b>
+    <b>Geben Sie so viele <span style="color: blue;">${experimentConfig.ProfessionsorHobbies}</span> ein, wie Sie können.<br> Drücken Sie nach jedem Wort die Eingabetaste.</b>
     <br>`
   },
   type: TextInputTrial,
