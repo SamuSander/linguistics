@@ -1,8 +1,8 @@
 version: '3.3'
 services:
-  drm_fmri:
+  winograd:
     build: .
-    image: ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA}
+    image: ${CI_REGISTRY_IMAGE}/winograd:${CI_COMMIT_SHORT_SHA}
     ports:
     - 8084:80
     hostname: insight_study_lab

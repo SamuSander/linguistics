@@ -1,44 +1,48 @@
-services:
-  drm:
-    build: .
-    image: ${CI_REGISTRY_IMAGE}/drm:latest
-    ports:
-    - 8080:80
-    hostname: drm
-    environment:
-    # - SERVERNAME=mariadb
-    # - USERNAME=root
-    # - PASSWORD=
-    # - DB_NAME=drm
-    # - PORT=3306
+version: '3.8'
 
-    - SERVERNAME=${SERVERNAME}
-    - USERNAME=${USERNAME}
-    - PASSWORD=${PASSWORD}
-    - DB_NAME=${DB_NAME}
-    - PORT=${PORT}
-    # volumes:
-    # - ./DRM:/var/www/html  # Maps the 'DRM' folder on your host to '/var/www/html' in the container
+services:
+  winograd:
+    # Build from the Dockerfile in the current directory (".")
+    build: .
+    image: winograd:latest
+    
+    # Map host port 8080 to container port 80
+    ports:
+      - "8080:80"
+
+    # Environment variables (if you have them set locally)
+    environment:
+      - SERVERNAME=${SERVERNAME}
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - PORT=${PORT}
+
+    # Bind-mount your local "winograd" folder into the container
+    # so you can edit locally and see changes without rebuilding.
+    volumes:
+      - type: bind
+        source: "./winograd"
+        target: "/var/www/html"
 
   mariadb:
-    image: mariadb
-    hostname: mariadb
+    image: mariadb:latest
     environment:
-    # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-
-    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    # Persist MySQL data on a named volume
     volumes: 
-      - mysql:/var/lib/mysql
+      - mysql_winograd:/var/lib/mysql
+    # Expose MySQL to host (optional if you only use phpMyAdmin)
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
-    image: phpmyadmin
+    image: phpmyadmin:latest
     ports:
-      - 8000:80
+      - "8000:80"
     environment:
-    - PMA_HOST=mariadb      # Connect to local MySQL server
-    # - PMA_PORT=3306           # Default MySQL port
-    # - PMA_ARBITRARY=1         # Allow any server to be specified
+      - PMA_HOST=mariadb
+      - PMA_PORT=3306
 
 volumes:
-  mysql:
-    external: true
+  mysql_winograd:

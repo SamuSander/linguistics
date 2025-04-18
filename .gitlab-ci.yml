@@ -1,4 +1,4 @@
-stages:          # List of stages for jobs, and their order of execution
+stages:         
   - build
   - tag
   - deploy-dev
@@ -8,15 +8,14 @@ before_script:
 #    - echo "$MY_DOCKERHUB_PASSWORD" | docker login -u "$MY_DOCKERHUB_USER" --password-stdin
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
 after_script:
-#    - docker logout
     - docker logout ${CI_REGISTRY}
 
-build-job:       # This job runs in the build stage, which runs first.
+build-job:    
   stage: build
   script:
-    - docker pull ${CI_REGISTRY_IMAGE}/drm:latest || true
-    - docker build . -t ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA} --build-arg DATABASE=${DATABASE}
-    - docker push ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA}
+    - docker pull ${CI_REGISTRY_IMAGE}/winograd:latest || true
+    - docker build . -t ${CI_REGISTRY_IMAGE}/winograd:${CI_COMMIT_SHORT_SHA} --build-arg DATABASE=${DATABASE}
+    - docker push ${CI_REGISTRY_IMAGE}/winograd:${CI_COMMIT_SHORT_SHA}
   tags:
     - buildserver
 
@@ -27,23 +26,23 @@ tag-latest:
   only:
     - main
   script:
-    - docker pull ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA}
-    - docker tag  ${CI_REGISTRY_IMAGE}/drm:${CI_COMMIT_SHORT_SHA} ${CI_REGISTRY_IMAGE}/drm:latest
-    - docker push ${CI_REGISTRY_IMAGE}/drm:latest
+    - docker pull ${CI_REGISTRY_IMAGE}/winograd:${CI_COMMIT_SHORT_SHA}
+    - docker tag  ${CI_REGISTRY_IMAGE}/winograd:${CI_COMMIT_SHORT_SHA} ${CI_REGISTRY_IMAGE}/winograd:latest
+    - docker push ${CI_REGISTRY_IMAGE}/winograd:latest
   tags:
     - buildserver
 
 deploy-job-dev:
   stage: deploy-dev
   tags: 
-    - zislrds0049 #your_tag
+    - zislrds0049
   except:
     - main
   script:
     - env | sort
-    - docker-compose -f docker-compose-dev.yml  -p drm-dev pull
-    - docker-compose -f docker-compose-dev.yml  -p drm-dev down
-    - docker-compose -f docker-compose-dev.yml  -p drm-dev up -d 
+    - docker-compose -f docker-compose-dev.yml  -p winograd-dev pull
+    - docker-compose -f docker-compose-dev.yml  -p winograd-dev down
+    - docker-compose -f docker-compose-dev.yml  -p winograd-dev up -d 
 
 deploy-job-prod:
   stage: deploy-prod
@@ -53,6 +52,6 @@ deploy-job-prod:
     - main
   script:
     - env | sort
-    - docker-compose -f docker-compose-prod.yml  -p drm-prod pull
-    - docker-compose -f docker-compose-prod.yml  -p drm-prod down
-    - docker-compose -f docker-compose-prod.yml  -p drm-prod up -d
+    - docker-compose -f docker-compose-prod.yml  -p winograd-prod pull
+    - docker-compose -f docker-compose-prod.yml  -p winograd-prod down
+    - docker-compose -f docker-compose-prod.yml  -p winograd-prod up -d
