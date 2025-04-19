@@ -20,6 +20,30 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
         type: jspsych.ParameterType.COMPLEX,
         default: undefined,
         description: 'The correct sequence to be recalled'
+      },
+      button_label_backspace: {
+        type: jspsych.ParameterType.STRING,
+        pretty_name: 'Button label backspace',
+        default: 'Löschen',
+        description: 'The text that appears on the backspace button.'
+      },
+      button_label_continue: {
+        type: jspsych.ParameterType.STRING,
+        pretty_name: 'Button label continue',
+        default: 'Weiter',
+        description: 'The text that appears on the continue button.'
+      },
+      cell_spacing: {
+        type: jspsych.ParameterType.INT,
+        pretty_name: 'Cell spacing',
+        default: 20, // 20px Abstand zwischen Zellen
+        description: 'Space between number cells'
+      },
+      button_spacing: {
+        type: jspsych.ParameterType.INT,
+        pretty_name: 'Button spacing',
+        default: 80, // 80px Abstand zwischen den Steuerungsbuttons
+        description: 'Space between control buttons'
       }
     }
   };
@@ -36,11 +60,16 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
     }
 
     trial(display_element, trial, on_load) {
+      console.log("DigitSpanRecallPlugin: Trial gestartet");
+      console.log("DigitSpanRecallPlugin: correct_order", trial.correct_order);
+      
       // Making matrix
       const grid = 3;
       let recalledGrid = [];
       const correctGrid = typeof trial.correct_order === 'function' ? trial.correct_order() : trial.correct_order;
       let display = " ";
+
+      console.log("DigitSpanRecallPlugin: correctGrid nach Auswertung", correctGrid);
 
       // Wichtig: Diese Mapping entspricht dem ursprünglichen Plugin
       const numbertobutton = {
@@ -56,8 +85,11 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
         "9": "0"
       };
 
-      // Create matrix positions
+      // Create matrix positions with adjusted spacing
+      const spacing = trial.cell_spacing || 20;
+      const buttonSpacing = trial.button_spacing || 80; // Expliziter Abstand zwischen Steuerungsbuttons
       let matrix = [];
+      
       for (let i = 0; i < grid; i++) {
         for (let h = 0; h < grid; h++) {
           matrix.push([i, h]);
@@ -65,18 +97,37 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
       }
       matrix.push([3, 1]); // Add the extra button position (0)
 
-      const paper_size = [(grid * trial.size_cells), ((grid + 1) * trial.size_cells) + 80];
+      const buttonSize = trial.size_cells;
+      const cellSpacing = spacing;
+      const topMargin = 120; // Increased top margin for better spacing
+      
+      // Calculate total size with spacing
+      const paper_size = [
+        (grid * buttonSize) + ((grid-1) * cellSpacing), 
+        ((grid+1) * buttonSize) + (grid * cellSpacing) + topMargin + 180 // Extra height for buttons
+      ];
 
-      // Ähnlich wie die alte Version - HTML direkt setzen
-      display_element.innerHTML = '<div id="jspsych-html-button-response-btngroup" style="position: relative; width:' + paper_size[0] + 'px; height:' + paper_size[1] + 'px"></div>';
+      // Berechne die Breite von 3 Buttons nebeneinander (mit Abständen)
+      const displayWidth = 3 * buttonSize + 2 * cellSpacing;
+
+      // Ähnlich wie die alte Version - HTML direkt setzen, aber mit breiterem Anzeigefeld
+      display_element.innerHTML = `
+        <div id="jspsych-html-button-response-btngroup" 
+             style="position: relative; width:${paper_size[0]}px; height:${paper_size[1]}px; margin: 0 auto;">
+          <div class="recall-space" 
+               style="position: absolute; top:0px; left:50%; transform: translateX(-50%); width:${displayWidth}px; 
+               height:64px; margin-bottom:40px; color: black; font-size: 32px;" 
+               id="recall_space">${display}</div>
+        </div>
+      `;
+      
       const paper = display_element.querySelector("#jspsych-html-button-response-btngroup");
-
-      paper.innerHTML += '<div class="recall-space" style="position: absolute; top:'+ 0 +'px; left:'+(paper_size[0]/2-300)+'px; width:600px; height:64px" id="recall_space">'+ display +'</div>';
 
       const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
       // Definiere globale Funktionen für onClick, ähnlich wie im ursprünglichen Plugin
       window.recordClick = (data) => {
+        console.log("DigitSpanRecallPlugin: Button geklickt", data.getAttribute('data-choice'));
         const tt = data.getAttribute('id');
         const selector = "#" + tt;
         display_element.querySelector(selector).className = 'jspsych-digit-span-recall';
@@ -85,24 +136,68 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
         const div = display_element.querySelector('#recall_space');
         display += numbertobutton[recalledN] + " ";
         div.innerHTML = display;
+        console.log("DigitSpanRecallPlugin: Aktuelle Eingabe", recalledGrid);
       };
 
       window.clearSpace = () => {
-        recalledGrid = recalledGrid.slice(0, (recalledGrid.length - 1));
-        const div = display_element.querySelector('#recall_space');
-        display = display.slice(0, (display.length - 2));
-        div.innerHTML = display;
+        console.log("DigitSpanRecallPlugin: Lösch-Button gedrückt");
+        if (recalledGrid.length > 0) {
+          recalledGrid = recalledGrid.slice(0, (recalledGrid.length - 1));
+          const div = display_element.querySelector('#recall_space');
+          display = display.slice(0, (display.length - 2));
+          div.innerHTML = display;
+          console.log("DigitSpanRecallPlugin: Nach Löschen", recalledGrid);
+        }
       };
 
-      // Verwende den innerHTML-Ansatz wie im Originalcode
+      // Verwende den innerHTML-Ansatz wie im Originalcode, aber mit angepassten Abständen
       for (let i = 0; i < matrix.length; i++) {
         const str = buttons[i];
-        paper.innerHTML += '<div class="jspsych-digit-span-recall" style="position: absolute; top:'+ (matrix[i][0]*(trial.size_cells-3)+80) +'px; left:'+matrix[i][1]*(trial.size_cells-3)+'px; width:'+(trial.size_cells-6)+'px; height:'+(trial.size_cells-6)+'px" id="jspsych-spatial-span-grid-button-' + i +'" data-choice="'+i+'" onclick="recordClick(this)">'+str+'</div>';
+        const top = (matrix[i][0] * (buttonSize + cellSpacing)) + topMargin;
+        const left = matrix[i][1] * (buttonSize + cellSpacing);
+        
+        paper.innerHTML += `
+          <div class="jspsych-digit-span-recall" 
+               style="position: absolute; top:${top}px; left:${left}px; 
+               width:${buttonSize}px; height:${buttonSize}px; color: black;" 
+               id="jspsych-spatial-span-grid-button-${i}" 
+               data-choice="${i}" 
+               onclick="recordClick(this)">${str}</div>
+        `;
       }
 
-      // Control buttons auch mit innerHTML
-      display_element.innerHTML += '<div class="jspsych-btn-numpad" style="display: inline-block; margin:'+0+' '+-10+'" id="jspsych-html-button-response-button-clear" onclick="clearSpace(this)">Backspace</div>';
-      display_element.innerHTML += '<div class="jspsych-btn-numpad" style="display: inline-block; margin:'+20+' '+40+'" id="jspsych-html-button-response-button">Continue</div>';
+      // STATT EINES FLEXBOX-CONTAINERS NUTZEN WIR DIREKTE POSITIONIERUNG FÜR GRÖSSEREN ABSTAND
+
+      // Berechne die Position für Buttons mit großem Abstand
+      const backButtonPos = paper_size[0]/2 - buttonSpacing/2 - 150; // Linker Button
+      const continueButtonPos = paper_size[0]/2 + buttonSpacing/2; // Rechter Button
+      
+      // Erstelle den Backspace-Button mit absoluter Positionierung
+      const backspaceButton = document.createElement('div');
+      backspaceButton.className = 'jspsych-btn-numpad';
+      backspaceButton.id = 'jspsych-html-button-response-button-clear';
+      backspaceButton.innerHTML = trial.button_label_backspace;
+      backspaceButton.style.position = 'absolute';
+      backspaceButton.style.bottom = '50px';
+      backspaceButton.style.left = backButtonPos + 'px';
+      backspaceButton.style.width = '150px';
+      backspaceButton.style.textAlign = 'center';
+      backspaceButton.addEventListener('click', window.clearSpace);
+      
+      // Erstelle den Continue-Button mit absoluter Positionierung
+      const continueButton = document.createElement('div');
+      continueButton.className = 'jspsych-btn-numpad';
+      continueButton.id = 'jspsych-html-button-response-button';
+      continueButton.innerHTML = trial.button_label_continue;
+      continueButton.style.position = 'absolute';
+      continueButton.style.bottom = '50px';
+      continueButton.style.left = continueButtonPos + 'px';
+      continueButton.style.width = '150px';
+      continueButton.style.textAlign = 'center';
+      
+      // Füge die Buttons direkt zum Paper hinzu
+      paper.appendChild(backspaceButton);
+      paper.appendChild(continueButton);
 
       const start_time = performance.now();
       let response = {
@@ -111,7 +206,11 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
       };
 
       // Event listener für den Continue-Button
-      display_element.querySelector('#jspsych-html-button-response-button').addEventListener('click', () => {
+      continueButton.addEventListener('click', () => {
+        console.log("DigitSpanRecallPlugin: Weiter-Button gedrückt");
+        console.log("DigitSpanRecallPlugin: Finale Eingabe", recalledGrid);
+        console.log("DigitSpanRecallPlugin: Korrekte Sequenz", correctGrid);
+        
         let accuracy = 1;
         
         // Überprüfe Genauigkeit
@@ -119,13 +218,16 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
           for (let i = 0; i < correctGrid.length; i++) {
             if (recalledGrid[i] !== correctGrid[i]) {
               accuracy = 0;
+              console.log(`DigitSpanRecallPlugin: Fehler bei Index ${i}: ${recalledGrid[i]} != ${correctGrid[i]}`);
               break;
             }
           }
         } else {
           accuracy = 0;
+          console.log(`DigitSpanRecallPlugin: Unterschiedliche Längen: ${recalledGrid.length} vs ${correctGrid.length}`);
         }
 
+        console.log("DigitSpanRecallPlugin: Genauigkeit", accuracy);
         after_response(accuracy);
       });
 
@@ -137,12 +239,15 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
         response.button = choice;
         response.rt = rt;
 
+        console.log("DigitSpanRecallPlugin: Response erfasst, RT =", rt);
         end_trial();
       };
 
       // Set timeout if trial_duration is set
       if (trial.trial_duration !== null) {
+        console.log("DigitSpanRecallPlugin: Timeout gesetzt:", trial.trial_duration);
         this.jsPsych.pluginAPI.setTimeout(() => {
+          console.log("DigitSpanRecallPlugin: Timeout abgelaufen");
           end_trial();
         }, trial.trial_duration);
       }
@@ -159,6 +264,8 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
           accuracy: response.button
         };
 
+        console.log("DigitSpanRecallPlugin: Trial beendet", trial_data);
+
         // Clear display
         display_element.innerHTML = '';
 
@@ -172,6 +279,7 @@ var jsPsychDigitSpanRecall = (function (jspsych) {
 
       // Signalisiere, dass der Trial geladen ist
       if (on_load) {
+        console.log("DigitSpanRecallPlugin: on_load aufgerufen");
         on_load();
       }
     }
