@@ -307,6 +307,7 @@ timeline.push(
   //preload,
   inputID,
   welcome, // important for the Config Table
+  /*
   consentForm,
   enter_fullscreen,
 
@@ -329,7 +330,12 @@ timeline.push(
   ifMissingFeedback,
   pvtEnd,
 
+  */
+
   // Digit Span
+  digitSpanInstr1,
+  digitSpanInstr2,
+  mainDigitSpan,
 
   // Mini Q
   miniq_introductionScreen,
