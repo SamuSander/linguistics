@@ -333,8 +333,8 @@ timeline.push(
   */
 
   // Digit Span
-  //digitSpanInstr1,
-  //digitSpanInstr2,
+  digitSpanInstr1,
+  digitSpanInstr2,
   mainDigitSpan,
 
   // Mini Q
