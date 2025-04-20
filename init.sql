@@ -1,6 +1,6 @@
 -- MySQL dump 10.16  Distrib 10.1.48-MariaDB, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: insight_lab
+-- Host: localhost    Database: winograd
 -- ------------------------------------------------------
 -- Server version	10.1.48-MariaDB-0ubuntu0.18.04.1
 
@@ -16,7 +16,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `insight_lab`
+-- Current Database: `winograd`
 --
 
 CREATE DATABASE /*!32312 IF NOT EXISTS*/ `winograd` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;

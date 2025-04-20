@@ -311,7 +311,6 @@ timeline.push(
   consentForm,
   enter_fullscreen,
 
-
   // Demographics
   demographics,
 
@@ -329,8 +328,10 @@ timeline.push(
   pvtMainProcedure,
   ifMissingFeedback,
   pvtEnd,
-
   */
+
+  // Winograd Trials
+  winogradTrials,
 
   // Digit Span
   digitSpanInstr1,
@@ -346,7 +347,6 @@ timeline.push(
   miniq_startTestScreen,
   miniq_mainTest,
   miniq_endScreen,
-  
 
   // RWT
   rwtIntro,

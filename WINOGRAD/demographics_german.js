@@ -1,7 +1,6 @@
 // DEMOGRAPHICS QUESTIONS -----------------------------------------------------------------------------
 var condition = "";
 var condition_s2 = "";
-//var demographic = "";
 var instructionsWidth = 900
 
 // FUNCTIONS
@@ -96,8 +95,8 @@ var demographics = {
     type: jsPsychSurveyHtmlForm,
     data: { trial: 'screening' },
     html:
-    `
-    <br><br>
+    
+    `<br><br>
     <div class="instructions" style="padding: 30px; margin: 10px; font-size: 18px; width:800px; border-radius: 10px;">
 
     <p><b>Bitte beantworten Sie die folgenden demografischen Fragen:</b></p>
@@ -112,8 +111,8 @@ var demographics = {
     </select>
     </p>
 
-    <p>Mit welchem Geschlecht identifizieren Sie sich?<br>
-        <select class="large-select" id="gender" required="required" name="gender" 
+    <p>Mit welchem Geschlecht identifizieren Sie sich? (optionale Angabe)<br>
+        <select class="large-select" id="gender" name="gender" 
         onchange="checkInput(this.value, 'self_describe', 'identity')">
             <option value=""></option>
             <option value="male">männlich</option>
@@ -127,14 +126,7 @@ var demographics = {
         placeholder="Wie würden Sie Ihr Geschlecht beschreiben?" size ="40">
     </p>
 
-    <!-- 
-    <p>Was ist Ihre Staatsangehörigkeit?<br>
-        <input class="large-input" type="text" name="ethnicity" id="ethnicity" required="required"
-        placeholder="Staatsangehörigkeit" size ="40">
-    </p>
-    -->
-
-    <!-- Staatangehörigkeit -->
+        <!-- Staatangehörigkeit -->
     <p>Was ist Ihre Staatsangehörigkeit?<br>
 <select class="large-select" id="ethnicity" required="required" name="ethnicity">
     <option value=""></option>
@@ -350,11 +342,33 @@ var demographics = {
     placeholder="Muttersprache" size ="40">
     </p>
 
-    <p>Beherrschen Sie Deutsch fließend?<br>
-    <select class="large-select" id="fluency" required="required" name="fluency">
-    <option value=""></option>
-    <option value="yes">ja</option>
-    <option value="no">nein</option>
+    <p>Welche weiteren Sprachen sprechen Sie fließend?<br>
+    <input class="large-input" type="text" name="other_languages" id="other_languages" 
+    placeholder="Weitere fließend gesprochene Sprachen (durch Kommata getrennt)" size="40">
+    </p>
+
+    <p>Wie schätzen Sie Ihre Deutschkenntnisse ein?<br>
+    <select class="large-select" id="german_skills" required="required" name="german_skills">
+        <option value=""></option>
+        <option value="native">Muttersprachlich</option>
+        <option value="excellent">Ausgezeichnet</option>
+        <option value="very_good">Sehr gut</option>
+        <option value="good">Gut</option>
+        <option value="average">Durchschnittlich</option>
+        <option value="basic">Grundkenntnisse</option>
+        <option value="poor">Gering</option>
+    </select>
+    </p>
+
+    <p>Wie schätzen Sie Ihr Leseverständnis im Deutschen ein?<br>
+    <select class="large-select" id="reading_skills" required="required" name="reading_skills">
+        <option value=""></option>
+        <option value="excellent">Ausgezeichnet</option>
+        <option value="very_good">Sehr gut</option>
+        <option value="good">Gut</option>
+        <option value="average">Durchschnittlich</option>
+        <option value="basic">Grundkenntnisse</option>
+        <option value="poor">Gering</option>
     </select>
     </p>
 
@@ -375,13 +389,11 @@ var demographics = {
     <p>Was ist Ihre Telefonnummer?<br>
     <input class="large-input" type="tel" id="phone" required="required" name="phone" 
            placeholder="Telefonnummer" size="40" 
-           pattern="[0-9+\s-]+"
+           pattern="[0-9+\\s-]+"
            title="Bitte geben Sie eine gültige Telefonnummer ein">
     </p>
 
     <hr>
-
-    <!-- Hier fangen die neuen Fragen an -->
 
     <p>Was ist Ihr höchster schulischer Abschluss?<br>
         <select class="large-select" id="school_degree" required="required" name="school_degree">
@@ -446,8 +458,7 @@ var demographics = {
         </select>
     </p>
     </div>
-    </div>
-    `,
+    </div>`,
 
     button_label: "weiter",
 
@@ -485,22 +496,6 @@ var demographics = {
                 ['email'], // colnames
                 [email] // values 
               );
-            // // Send demographics and email to the config table
-            // sendConfigurationStatusUpdate(
-            //     "orseeId", // varwhere
-            //     orseeId, // vareqls
-            //     ['demographic'], // colnames
-            //     [demographic], // values
-            //     "orseeId"  // idType (the type of the ID column) 
-            // );
-
-            // sendEmailStatusUpdate(
-            //     "orseeId", // varwhere
-            //     orseeId, // vareqls
-            //     ['email'], // colnames
-            //     [email], // values
-            //     "orseeId"  // idType (the type of the ID column) 
-            // );
         }
 
     // Stringify, because array can not be saved in the database
@@ -550,4 +545,3 @@ var checkDemographicsLoop = {
         }
     }
 };
-
