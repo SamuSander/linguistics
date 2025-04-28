@@ -4,8 +4,8 @@ services:
     build: .
     image: ${CI_REGISTRY_IMAGE}/winograd:${CI_COMMIT_SHORT_SHA}
     ports:
-    - 8084:80
-    hostname: insight_study_lab
+    - 8092:80
+    hostname: winograd
     environment:
     - SERVERNAME=${SERVERNAME}
     - USERNAME=${USERNAME}

@@ -329,7 +329,7 @@ timeline.push(
   ifMissingFeedback,
   pvtEnd,
 
-
+  */
   // Winograd Trials
   winogradTrials,
 
@@ -338,7 +338,7 @@ timeline.push(
   digitSpanInstr2,
   mainDigitSpan,
 
-  */
+
 
   // Mini Q
   miniq_introductionScreen,

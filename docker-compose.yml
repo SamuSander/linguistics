@@ -2,15 +2,11 @@ version: '3.8'
 
 services:
   winograd:
-    # Build from the Dockerfile in the current directory (".")
     build: .
-    image: winograd:latest
-    
-    # Map host port 8080 to container port 80
+    image: ${CI_REGISTRY_IMAGE}/winograd:latest
     ports:
       - "8080:80"
-
-    # Environment variables (if you have them set locally)
+    hostname: winograd
     environment:
       - SERVERNAME=${SERVERNAME}
       - USERNAME=${USERNAME}
@@ -18,31 +14,20 @@ services:
       - DB_NAME=${DB_NAME}
       - PORT=${PORT}
 
-    # Bind-mount your local "winograd" folder into the container
-    # so you can edit locally and see changes without rebuilding.
-    volumes:
-      - type: bind
-        source: "./winograd"
-        target: "/var/www/html"
-
   mariadb:
-    image: mariadb:latest
+    image: mariadb
+    hostname: mariadb
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-    # Persist MySQL data on a named volume
     volumes: 
       - mysql_winograd:/var/lib/mysql
-    # Expose MySQL to host (optional if you only use phpMyAdmin)
-    ports:
-      - "3306:3306"
 
   phpmyadmin:
-    image: phpmyadmin:latest
+    image: phpmyadmin
     ports:
       - "8000:80"
     environment:
-      - PMA_HOST=mariadb
-      - PMA_PORT=3306
+      - PMA_HOST=${PMA_HOST}
 
 volumes:
   mysql_winograd:

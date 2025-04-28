@@ -20,7 +20,7 @@ services:
     environment:
     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes: 
-    - mysql_winograd:/var/lib/mysql #Not sure about the _winograd part - its in the wiki how
+    - mysql_winograd:/var/lib/mysql 
 
   phpmyadmin:
     image: phpmyadmin
@@ -30,6 +30,4 @@ services:
     - PMA_HOST=${PMA_HOST}
 
 volumes:
-  mysql_winograd: #Not sure about the _winograd part - see above
-  # mysql:
-  #   external: true
+  mysql_winograd: 
