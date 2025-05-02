@@ -307,7 +307,6 @@ timeline.push(
   //preload,
   inputID,
   welcome, // important for the Config Table
-  /*
   consentForm,
   enter_fullscreen,
 
@@ -329,7 +328,6 @@ timeline.push(
   ifMissingFeedback,
   pvtEnd,
 
-  */
   // Winograd Trials
   winogradTrials,
 
@@ -337,8 +335,6 @@ timeline.push(
   digitSpanInstr1,
   digitSpanInstr2,
   mainDigitSpan,
-
-
 
   // Mini Q
   miniq_introductionScreen,
